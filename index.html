@@ -1,0 +1,904 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>JavaScript &amp; React - Tóm tắt kiến thức </title><style>
+    /* cspell:disable-file */
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    @media only screen {
+        body {
+            margin: 2em auto;
+            max-width: 900px;
+            color: rgb(55, 53, 47);
+        }
+    }
+    
+    body {
+        line-height: 1.5;
+        white-space: pre-wrap;
+    }
+    
+    a,
+    a.visited {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    .pdf-relative-link-path {
+        font-size: 80%;
+        color: #444;
+    }
+    
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0.75em;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-top: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        margin-top: 1.25rem;
+    }
+    
+    .source {
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 1.5em;
+        word-break: break-all;
+    }
+    
+    .callout {
+        border-radius: 3px;
+        padding: 1rem;
+    }
+    
+    figure {
+        margin: 1.25em 0;
+        page-break-inside: avoid;
+    }
+    
+    figcaption {
+        opacity: 0.5;
+        font-size: 85%;
+        margin-top: 0.5em;
+    }
+    
+    mark {
+        background-color: transparent;
+    }
+    
+    .indented {
+        padding-left: 1.5em;
+    }
+    
+    hr {
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 1px;
+        visibility: visible;
+        border: none;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    @media only print {
+        img {
+            max-height: 100vh;
+            object-fit: contain;
+        }
+    }
+    
+    @page {
+        margin: 1in;
+    }
+    
+    .collection-content {
+        font-size: 0.875rem;
+    }
+    
+    .column-list {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .column {
+        padding: 0 1em;
+    }
+    
+    .column:first-child {
+        padding-left: 0;
+    }
+    
+    .column:last-child {
+        padding-right: 0;
+    }
+    
+    .table_of_contents-item {
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 0.125rem;
+    }
+    
+    .table_of_contents-indent-1 {
+        margin-left: 1.5rem;
+    }
+    
+    .table_of_contents-indent-2 {
+        margin-left: 3rem;
+    }
+    
+    .table_of_contents-indent-3 {
+        margin-left: 4.5rem;
+    }
+    
+    .table_of_contents-link {
+        text-decoration: none;
+        opacity: 0.7;
+        border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid rgba(55, 53, 47, 0.09);
+        border-collapse: collapse;
+    }
+    
+    table {
+        border-left: none;
+        border-right: none;
+    }
+    
+    th,
+    td {
+        font-weight: normal;
+        padding: 0.25em 0.5em;
+        line-height: 1.5;
+        min-height: 1.5em;
+        text-align: left;
+    }
+    
+    th {
+        color: rgba(55, 53, 47, 0.6);
+    }
+    
+    ol,
+    ul {
+        margin: 0;
+        margin-block-start: 0.6em;
+        margin-block-end: 0.6em;
+    }
+    
+    li > ol:first-child,
+    li > ul:first-child {
+        margin-block-start: 0.6em;
+    }
+    
+    ul > li {
+        list-style: disc;
+    }
+    
+    ul.to-do-list {
+        padding-inline-start: 0;
+    }
+    
+    ul.to-do-list > li {
+        list-style: none;
+    }
+    
+    .to-do-children-checked {
+        text-decoration: line-through;
+        opacity: 0.375;
+    }
+    
+    ul.toggle > li {
+        list-style: none;
+    }
+    
+    ul {
+        padding-inline-start: 1.7em;
+    }
+    
+    ul > li {
+        padding-left: 0.1em;
+    }
+    
+    ol {
+        padding-inline-start: 1.6em;
+    }
+    
+    ol > li {
+        padding-left: 0.2em;
+    }
+    
+    .mono ol {
+        padding-inline-start: 2em;
+    }
+    
+    .mono ol > li {
+        text-indent: -0.4em;
+    }
+    
+    .toggle {
+        padding-inline-start: 0em;
+        list-style-type: none;
+    }
+    
+    /* Indent toggle children */
+    .toggle > li > details {
+        padding-left: 1.7em;
+    }
+    
+    .toggle > li > details > summary {
+        margin-left: -1.1em;
+    }
+    
+    .selected-value {
+        display: inline-block;
+        padding: 0 0.5em;
+        background: rgba(206, 205, 202, 0.5);
+        border-radius: 3px;
+        margin-right: 0.5em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .collection-title {
+        display: inline-block;
+        margin-right: 1em;
+    }
+    
+    .page-description {
+        margin-bottom: 2em;
+    }
+    
+    .simple-table {
+        margin-top: 1em;
+        font-size: 0.875rem;
+        empty-cells: show;
+    }
+    .simple-table td {
+        height: 29px;
+        min-width: 120px;
+    }
+    
+    .simple-table th {
+        height: 29px;
+        min-width: 120px;
+    }
+    
+    .simple-table-header-color {
+        background: rgb(247, 246, 243);
+        color: black;
+    }
+    .simple-table-header {
+        font-weight: 500;
+    }
+    
+    time {
+        opacity: 0.5;
+    }
+    
+    .icon {
+        display: inline-block;
+        max-width: 1.2em;
+        max-height: 1.2em;
+        text-decoration: none;
+        vertical-align: text-bottom;
+        margin-right: 0.5em;
+    }
+    
+    img.icon {
+        border-radius: 3px;
+    }
+    
+    .user-icon {
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 100%;
+        margin-right: 0.5rem;
+    }
+    
+    .user-icon-inner {
+        font-size: 0.8em;
+    }
+    
+    .text-icon {
+        border: 1px solid #000;
+        text-align: center;
+    }
+    
+    .page-cover-image {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        max-height: 30vh;
+    }
+    
+    .page-header-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .page-header-icon-with-cover {
+        margin-top: -0.72em;
+        margin-left: 0.07em;
+    }
+    
+    .page-header-icon img {
+        border-radius: 3px;
+    }
+    
+    .link-to-page {
+        margin: 1em 0;
+        padding: 0;
+        border: none;
+        font-weight: 500;
+    }
+    
+    p > .user {
+        opacity: 0.5;
+    }
+    
+    td > .user,
+    td > time {
+        white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+        transform: scale(1.5);
+        margin-right: 0.6em;
+        vertical-align: middle;
+    }
+    
+    p {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .image {
+        border: none;
+        margin: 1.5em 0;
+        padding: 0;
+        border-radius: 0;
+        text-align: center;
+    }
+    
+    .code,
+    code {
+        background: rgba(135, 131, 120, 0.15);
+        border-radius: 3px;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 85%;
+        tab-size: 2;
+    }
+    
+    code {
+        color: #eb5757;
+    }
+    
+    .code {
+        padding: 1.5em 1em;
+    }
+    
+    .code-wrap {
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+    
+    .code > code {
+        background: none;
+        padding: 0;
+        font-size: 100%;
+        color: inherit;
+    }
+    
+    blockquote {
+        font-size: 1.25em;
+        margin: 1em 0;
+        padding-left: 1em;
+        border-left: 3px solid rgb(55, 53, 47);
+    }
+    
+    .bookmark {
+        text-decoration: none;
+        max-height: 8em;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .bookmark-title {
+        font-size: 0.85em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 1.75em;
+        white-space: nowrap;
+    }
+    
+    .bookmark-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bookmark-info {
+        flex: 4 1 180px;
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bookmark-image {
+        width: 33%;
+        flex: 1 1 180px;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        border-radius: 1px;
+    }
+    
+    .bookmark-description {
+        color: rgba(55, 53, 47, 0.6);
+        font-size: 0.75em;
+        overflow: hidden;
+        max-height: 4.5em;
+        word-break: break-word;
+    }
+    
+    .bookmark-href {
+        font-size: 0.75em;
+        margin-top: 0.25em;
+    }
+    
+    .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+    .code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+    .serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+    .mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+    .pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+    .pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+    .pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+    .pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+    .pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+    .pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+    .pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+    .pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+    .pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+    .pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+    .pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+    .pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+    .highlight-default {
+        color: rgba(55, 53, 47, 1);
+    }
+    .highlight-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+    }
+    .highlight-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+    }
+    .highlight-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+    }
+    .highlight-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+    }
+    .highlight-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+    }
+    .highlight-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+    }
+    .highlight-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+    }
+    .highlight-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+    }
+    .highlight-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+    }
+    .highlight-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .highlight-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .highlight-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .highlight-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .highlight-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .highlight-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .highlight-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .highlight-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .highlight-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .block-color-default {
+        color: inherit;
+        fill: inherit;
+    }
+    .block-color-gray {
+        color: rgba(120, 119, 116, 1);
+        fill: rgba(120, 119, 116, 1);
+    }
+    .block-color-brown {
+        color: rgba(159, 107, 83, 1);
+        fill: rgba(159, 107, 83, 1);
+    }
+    .block-color-orange {
+        color: rgba(217, 115, 13, 1);
+        fill: rgba(217, 115, 13, 1);
+    }
+    .block-color-yellow {
+        color: rgba(203, 145, 47, 1);
+        fill: rgba(203, 145, 47, 1);
+    }
+    .block-color-teal {
+        color: rgba(68, 131, 97, 1);
+        fill: rgba(68, 131, 97, 1);
+    }
+    .block-color-blue {
+        color: rgba(51, 126, 169, 1);
+        fill: rgba(51, 126, 169, 1);
+    }
+    .block-color-purple {
+        color: rgba(144, 101, 176, 1);
+        fill: rgba(144, 101, 176, 1);
+    }
+    .block-color-pink {
+        color: rgba(193, 76, 138, 1);
+        fill: rgba(193, 76, 138, 1);
+    }
+    .block-color-red {
+        color: rgba(212, 76, 71, 1);
+        fill: rgba(212, 76, 71, 1);
+    }
+    .block-color-gray_background {
+        background: rgba(241, 241, 239, 1);
+    }
+    .block-color-brown_background {
+        background: rgba(244, 238, 238, 1);
+    }
+    .block-color-orange_background {
+        background: rgba(251, 236, 221, 1);
+    }
+    .block-color-yellow_background {
+        background: rgba(251, 243, 219, 1);
+    }
+    .block-color-teal_background {
+        background: rgba(237, 243, 236, 1);
+    }
+    .block-color-blue_background {
+        background: rgba(231, 243, 248, 1);
+    }
+    .block-color-purple_background {
+        background: rgba(244, 240, 247, 0.8);
+    }
+    .block-color-pink_background {
+        background: rgba(249, 238, 243, 0.8);
+    }
+    .block-color-red_background {
+        background: rgba(253, 235, 236, 1);
+    }
+    .select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+    .select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+    .select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+    .select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+    .select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+    .select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+    .select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+    .select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+    .select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+    .select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+    .select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+    .select-value-color-pageGlass { background-color: undefined; }
+    .select-value-color-washGlass { background-color: undefined; }
+    
+    .checkbox {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        width: 16;
+        height: 16;
+        background-size: 16px;
+        margin-left: 2px;
+        margin-right: 5px;
+    }
+    
+    .checkbox-on {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+    
+    .checkbox-off {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+        
+    </style></head><body><article id="66ec731c-d1f3-46d2-a242-1a52abd1b7b9" class="page serif"><header><div class="page-header-icon undefined"><span class="icon">✍🏼</span></div><h1 class="page-title"><strong><strong>JavaScript &amp; React - Tóm tắt kiến thức</strong></strong> </h1><p class="page-description"></p></header><div class="page-body"><h3 id="d2b2c19d-09d5-45e3-948a-c56ee93aeee7" class="">Các khái niệm <strong>JavaScript </strong></h3><p id="f4f2fa7f-c6df-4be2-8d6a-fafd087ac9e9" class=""><strong>1. ES6 (ES2015)</strong></p><ul id="18e78786-1ae3-4aeb-8e26-934a3a5700a0" class="bulleted-list"><li style="list-style-type:disc"><strong>Định nghĩa</strong>: Phiên bản cập nhật lớn nhất của JavaScript, mang đến nhiều tính năng mới và cải tiến.</li></ul><p id="a0e74709-62b2-4bd1-9564-b148fab035fc" class=""><strong>2. Arrow Functions</strong></p><ul id="c4233083-e34f-4d93-82c7-b1e2d72ee704" class="bulleted-list"><li style="list-style-type:disc"><strong>Định nghĩa</strong>: Cách mới và ngắn gọn hơn để viết function.</li></ul><ul id="f81bb058-a040-4e8d-adcd-49cca086398a" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>: <code><strong>(a, b) =&gt; a + b</strong></code> thay vì <code><strong>function(a, b) { return a + b; }</strong></code>.</li></ul><p id="5e09897d-97a1-4eb5-b59b-5c4cb14fbbcf" class=""><strong>3. Asynchronize in JS</strong></p><ul id="46c80a36-f0a6-4cbc-834a-13a7fe2bccdc" class="bulleted-list"><li style="list-style-type:disc"><strong>Callback</strong>: Hàm truyền như tham số, thực thi sau khi hàm chứa hoàn tất.</li></ul><pre id="fafbc706-dccc-4c77-82dc-852031b81568" class="code"><code>function greeting(name, callback) {
+        console.log(`Hello ${name}`);
+        callback();
+    }
+    
+    function alertFinished() {
+        console.log("Greeting is finished!");
+    }
+    
+    greeting("John", alertFinished);</code></pre><ul id="a68c727b-7617-454c-86c8-a471738e564a" class="bulleted-list"><li style="list-style-type:disc"><strong>Promise</strong>: Đối tượng đại diện cho sự hoàn thành của một thao tác bất đồng bộ.</li></ul><p id="ba07dd82-e5d1-4466-8fd1-7d37521a72be" class=""><strong>Cách hoạt động</strong>:</p><ol type="1" id="8adb6031-602c-48f7-b409-1914964aaf9e" class="numbered-list" start="1"><li>Một <code><strong>Promise</strong></code> có ba trạng thái: <code><strong>pending</strong></code> (đang chờ), <code><strong>fulfilled</strong></code> (hoàn thành), và <code><strong>rejected</strong></code> (bị từ chối).</li></ol><ol type="1" id="822cb997-13bf-4981-8c31-635ef0a804e3" class="numbered-list" start="2"><li>Khi một <code><strong>Promise</strong></code> được tạo ra, nó ở trạng thái <code><strong>pending</strong></code>.</li></ol><ol type="1" id="3823e5b1-ef5f-46a5-a528-d57ee29b46ce" class="numbered-list" start="3"><li>Khi kết quả được trả về, nó chuyển sang trạng thái <code><strong>fulfilled</strong></code> hoặc <code><strong>rejected</strong></code>.</li></ol><pre id="df95344b-3318-446a-9206-8e89b44a41e8" class="code"><code>const promiseExample = new Promise((resolve, reject) =&gt; {
+        setTimeout(() =&gt; {
+            resolve("Promise is resolved!");
+            // Or you could reject("Promise was rejected!");
+        }, 1000);
+    });
+    
+    promiseExample.then((message) =&gt; {
+        console.log(message);  // Output: "Promise is resolved!"
+    }).catch((error) =&gt; {
+        console.log(error);
+    });</code></pre><ul id="2da82ecb-4ec6-41bf-ac5f-7ba98f15272d" class="bulleted-list"><li style="list-style-type:disc"><strong>async/await</strong>: Làm việc với bất đồng bộ dễ dàng và rõ ràng.</li></ul><p id="8c90bb5d-f3e5-46dd-b227-06e833e794c8" class=""><strong>Cách hoạt động</strong>:</p><ol type="1" id="4b937a0a-7782-493a-81fd-e2b35b9ae070" class="numbered-list" start="1"><li>Từ khóa <code><strong>async</strong></code> trước một function nghĩa là function sẽ trả về một <code><strong>Promise</strong></code>.</li></ol><ol type="1" id="03d6131c-dafc-4377-a9d1-773537a3d3b9" class="numbered-list" start="2"><li>Từ khóa <code><strong>await</strong></code> chỉ có thể được sử dụng trong một function được định nghĩa với <code><strong>async</strong></code>. Nó giúp mã dừng lại và đợi cho đến khi <code><strong>Promise</strong></code> được giải quyết.</li></ol><pre id="35996751-2486-4677-81bf-d0f1993d2271" class="code"><code>const asyncFunction = async () =&gt; {
+        const result = await promiseExample;  // waiting for the promise to resolve
+        console.log(result);  // Output: "Promise is resolved!"
+    };
+    
+    asyncFunction().catch((error) =&gt; {
+        console.log(error);
+    });</code></pre><p id="6f0713e3-ea37-45b9-986a-d7f521fd406f" class=""><strong>4. this &amp; OOP</strong></p><ul id="2219e1b7-f7d6-44bb-bfb1-69ef043466bf" class="bulleted-list"><li style="list-style-type:disc"><strong>this</strong>: Tham chiếu đến đối tượng hiện tại.</li></ul><pre id="50a687ee-792b-4f4b-aff4-7e53d7640222" class="code"><code>const person = {
+        name: "John",
+        sayHello: function() {
+            console.log(`Hello, my name is ${this.name}`);
+        }
+    };
+    
+    person.sayHello();  // Output: "Hello, my name is John"</code></pre><p id="4fd7a773-b988-4ace-8a14-dc1f43519b31" class="">Tuy nhiên, lưu ý rằng <code><strong>this</strong></code> trong arrow functions không hoạt động theo cùng một cách: qua trung gian </p><pre id="fa7a53cc-5193-4808-bcf5-7e3b8ebb867f" class="code"><code>const personArrow = {
+        name: "John",
+        sayHello: () =&gt; {
+            console.log(`Hello, my name is ${this.name}`);
+        }
+    };
+    
+    personArrow.sayHello();  // Output: "Hello, my name is undefined"</code></pre><pre id="8229475d-9a40-43b9-ac92-abd6057019a9" class="code"><code>function Person() {
+      this.age = 0;
+    
+      // Sử dụng arrow function
+      setInterval(() =&gt; {
+        this.age++;
+        console.log(this.age);
+      }, 1000);
+    
+      // Sử dụng function bình thường
+      /* 
+      sử dụng một biến (thường là self hoặc that) để giữ ngữ cảnh this ban đầu:
+      const self = this;
+      setInterval(function() {
+        self.age++;
+        console.log(self.age);
+      }, 1000);
+      */
+    }
+    
+    const person = new Person();
+    
+    // khi sử dụng arrow function thì this trỏ thẳng tới object Person 
+    // khi sử dụng function bình thường thì cần phải gán 1 biến để trỏ tới </code></pre><p id="96ffc089-464e-49e6-9e3b-d8cb2daa5e9d" class="">
+    </p><ul id="1391e49b-60a5-4369-a1e1-9d7a5f77fab9" class="bulleted-list"><li style="list-style-type:disc"><strong>OOP</strong>: Phương pháp tạo ra đối tượng giống như thực tế.</li></ul><pre id="1a9ab4c4-e1cc-47b9-aa28-66d361deb9bf" class="code"><code>class Animal {
+        constructor(name) {
+            this.name = name;
+        }
+    
+        speak() {
+            console.log(`${this.name} makes a noise.`);
+        }
+    }
+    
+    class Dog extends Animal {
+        speak() {
+            console.log(`${this.name} barks.`);
+        }
+    }
+    
+    const dog = new Dog('Rex');
+    dog.speak();  // Output: "Rex barks."
+    
+    const genericAnimal = new Animal('Animal');
+    genericAnimal.speak();  // Output: "Animal makes a noise."
+    </code></pre><p id="b8dcc836-8516-4ba1-a0f5-23911913679e" class=""><strong>5. Basic Syntax</strong></p><p id="d189741a-90af-42c3-853a-be6dd0af666d" class=""><strong>Biến</strong></p><pre id="97710bc7-8d6d-46c7-b714-e97d443b9716" class="code"><code>// ES6 introduces let and const for variable declaration
+    let variable = "ES6 variable";
+    const constantVariable = "This value cannot change";</code></pre><p id="47dcc478-9e88-4b44-ba04-dfaf346f0c52" class=""><strong>Các kiểu dữ liệu</strong></p><pre id="823d493a-5629-41ba-bd19-b2ef55ec09b0" class="code"><code>let number = 123;
+    let string = "Hello, World!";
+    let boolean = true;
+    let object = { firstName: "John", lastName: "Doe" };
+    let array = [1, 2, 3, 4];</code></pre><p id="5e294bad-3a38-4a15-bb73-37dc59e6b043" class=""><strong>Chức năng</strong></p><pre id="c4d8db57-c9b8-441d-9df0-27ac3e0603ec" class="code"><code>function greet(name) {
+      return "Hello, " + name + "!";
+    }</code></pre><p id="0c0a281f-cd04-404c-8151-6a9e78a97807" class=""><strong>Câu lệnh điều kiện</strong></p><pre id="9dbe4156-4739-48ab-9e48-2d315727e575" class="code"><code>const b = 14
+    
+    if(b &gt; 15 ){
+        console.log('oke');
+    }
+    else{
+        console.log('loi');
+    }</code></pre><p id="04339d79-13aa-4b8e-abc2-9965fee6ca23" class=""><strong>Vòng lặp</strong></p><pre id="23f67cd9-6015-4027-b46f-0e44cab569d2" class="code"><code>const number =  [1,2,3,4,5,6]
+    for(let a = 1; a &lt; numbẻ.length; a ++)</code></pre><p id="e8133dc3-2d6b-42f7-b23f-467c7a37b2bb" class=""><strong>6. DOM </strong></p><p id="0c5f3bfb-f8df-4970-95eb-2442f138a848" class=""><strong>Truy cập phần tử</strong>:</p><pre id="815e9f47-8ff4-47e2-917c-aa2c290cc450" class="code"><code>document.getElementById('elementId');
+    document.querySelector('.className');</code></pre><p id="d6947dcf-1d98-472e-8cb2-e01e96a90540" class=""><strong>Thay đổi nội dung</strong>:</p><pre id="0b13fcfb-92b7-4cff-b979-deb91a9023cb" class="code"><code>let rename = document.getElementById('elementId');
+    rename.innerHTML = 'Stdio'</code></pre><p id="77d4152a-36bc-437e-897e-089ad2fc2b0c" class=""><strong>Thêm/Xóa lớp CSS</strong>:</p><pre id="31a47ad8-0116-48b8-b4bf-e5f9082a20a7" class="code"><code>element.classList.add('new-class');
+    element.classList.remove('old-class');</code></pre><p id="7eab8a90-13c7-4dce-8ed4-4c8b3dbb2863" class=""><strong>7. BOM (Browser Object Model):</strong></p><p id="e45c2e75-a20f-47da-a573-53c57549d423" class=""><strong>Cửa sổ</strong>:</p><pre id="6328a083-c018-459e-a8c9-716f1283a527" class="code"><code>window.open();  // Mở một cửa sổ mới
+    window.close(); // Đóng cửa sổ hiện tại
+    window.innerWidth;  // Chiều rộng của viewport</code></pre><p id="3d400be8-bc03-4ccf-8256-8fe00bd9327b" class=""><strong>Vị trí</strong>:</p><pre id="bbdda127-e892-48f2-a920-663cad2a8f3b" class="code"><code>window.location.href;  // Chuyển về URL hiện tại</code></pre><p id="84868bad-ed1e-475d-956a-3c8bcd8ad393" class=""><strong>Lịch sử</strong>:</p><pre id="adc35167-38b3-4288-b9f1-d825b23817f0" class="code"><code>window.history.back();  // Quay lại trang trước</code></pre><p id="b68d0721-0fa1-43c3-8944-1bc08e696cd9" class=""><strong>Bộ định giờ</strong>:</p><pre id="3cdc171e-9c39-4a8a-a245-44e3c9682b65" class="code"><code>setTimeout(function, milliseconds); 
+    //setTimeout sẽ chạy hàm chỉ một lần sau một khoảng thời gian đã được xác định (được chỉ định bằng milliseconds).
+    
+    setInterval(function, milliseconds);
+    //setInterval sẽ chạy hàm liên tục sau mỗi khoảng thời gian đã được xác định, cho đến khi bạn dừng nó hoặc trang web bị đóng.</code></pre><p id="6c234410-e24c-4fa2-bd81-e5ad1ae11d4d" class=""><strong>8. Column &amp; Grid System:</strong></p><pre id="d5d4edff-7c35-4026-b5c5-8367cd87f141" class="code"><code>&lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-md-8"&gt;Column 1&lt;/div&gt;
+            &lt;div class="col-md-4"&gt;Column 2&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</code></pre><p id="77b98610-6f31-4064-9ccf-b48dedf4faa3" class=""><strong>9. Helper Classes:</strong></p><pre id="e9421417-c6ac-43a8-b0ed-bcb3bc71dbce" class="code"><code>Màu sắc: .text-primary, .bg-danger, ...
+    Khoảng cách: Padding (p-*) và Margin (m-*) như .mt-3 (margin-top 3 units), .pb-2 (padding-bottom 2 units).
+    Hiển thị: .d-none (ẩn), .d-block (block display), .d-flex (flexbox display) và nhiều class khác dành cho responsive design.</code></pre><hr id="9305fc36-a5fa-4428-a984-09dfa3a5d05a"><h3 id="115f914e-4b2a-47c5-acec-7a75f41be346" class="">Các khái niệm <strong>React </strong></h3><p id="61826f83-39c9-44bf-b6d1-49424b7c7e81" class=""><strong>1. React</strong></p><ul id="cfbd2ad9-b1c2-4d17-af75-ca5e8f938f8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition</strong>: Thư viện JavaScript của Facebook giúp xây dựng UI.</li></ul><pre id="47651b69-d3a8-4691-a2d3-e94ca90dcda3" class="code"><code>import React from 'react';
+    import ReactDOM from 'react-dom';
+    
+    function App() {
+        return &lt;h1&gt;Hello, React!&lt;/h1&gt;;
+    }
+    
+    ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));</code></pre><p id="15b5a524-3d76-4067-a358-5396841aed46" class=""><strong>2. JSX</strong></p><ul id="6751f01a-cba6-46e8-8358-02d2faf58a70" class="bulleted-list"><li style="list-style-type:disc"><strong>Định nghĩa</strong>: Cú pháp mở rộng cho JavaScript cho phép viết mã giống HTML.</li></ul><pre id="a0e3ffb1-d5cc-463f-bb97-2f37f3b5a450" class="code"><code>const element = &lt;h1&gt;Hello, JSX!&lt;/h1&gt;;</code></pre><p id="bcad6fff-9ae3-407b-a618-b138d40c778a" class=""><strong>3. Lifecycle of Component</strong></p><ul id="f085bfb7-289b-4c6d-bfad-7259bd12a679" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Giai đoạn mà component trải qua từ khi tạo đến khi hủy.</li></ul><pre id="002689fb-ecaa-418d-ab9b-70af9dd520c7" class="code"><code>import React, { Component } from 'react';
+    
+    class ExampleComponent extends Component {
+        constructor(props) {
+            super(props);
+            console.log('Constructor - Khởi tạo');
+        }
+    
+        componentDidMount() {
+            console.log('componentDidMount - Gán vào Component');
+        }
+    
+        componentDidUpdate() {
+            console.log('componentDidUpdate - Cập nhật Component');
+        }
+    
+        componentWillUnmount() {
+            console.log('componentWillUnmount - Hủy khỏi Component');
+        }
+    
+        render() {
+            return &lt;h1&gt;Hello, Lifecycle!&lt;/h1&gt;;
+        }
+    }</code></pre><p id="707dabc8-f5a0-4adf-b2fe-387a1278e777" class=""><strong>4. Types of Components</strong></p><ul id="c2cc8d97-1180-46d2-9973-ea805321e3de" class="bulleted-list"><li style="list-style-type:disc"><strong>Class component</strong>: Viết dưới dạng class ES6, là một class ES6 kế thừa từ <code><strong>React.Component</strong></code>.</li></ul><p id="391b62f3-1ae6-4e93-84e4-a0b75b94c3d3" class=""><strong>Cách hoạt động</strong>:</p><ol type="1" id="56cc7d30-a968-4809-9a16-f3ae8d882556" class="numbered-list" start="1"><li>Có một phương thức <code><strong>render()</strong></code> bắt buộc, trả về JSX.</li></ol><ol type="1" id="aea0ce6b-3a07-4ecd-aea6-dd8b01b8c151" class="numbered-list" start="2"><li>Có thể sử dụng trạng thái (state) và vòng đời (lifecycle methods).</li></ol><ol type="1" id="5b13e792-feb4-4c1c-a360-417566c62f63" class="numbered-list" start="3"><li>Trạng thái được quản lý bên trong component và có thể thay đổi theo thời gian.</li></ol><pre id="2395f7be-9b10-4f0a-a553-4deaa58a3729" class="code"><code>// Class Component
+    class ClassComponent extends React.Component {
+        render() {
+            return &lt;h1&gt;Hello from Class Component!&lt;/h1&gt;;
+        }
+    }</code></pre><ul id="0949fbbb-e504-4f83-b04c-cf371cb9764a" class="bulleted-list"><li style="list-style-type:disc"><strong>Function component</strong>: Viết dưới dạng hàm, là một hàm JavaScript, trả về JSX..</li></ul><p id="0a3bd73f-7929-4ef2-8ec2-29292dc7c4ad" class=""><strong>Cách hoạt động</strong>:</p><ol type="1" id="9c930e1b-7fab-4f8a-aa58-145d4293c42d" class="numbered-list" start="1"><li>Trước đây, thường chỉ sử dụng cho các component không có trạng thái hoặc logic phức tạp.</li></ol><ol type="1" id="2f199336-d270-4ca9-8c00-e5d38552a61e" class="numbered-list" start="2"><li>Với sự giới thiệu của Hooks (từ React 16.8 trở đi), Function Components giờ đây có thể sử dụng trạng thái, vòng đời và nhiều tính năng khác của React.</li></ol><pre id="972c6ac5-b1de-49f2-a7b6-5daefc5dbd1a" class="code"><code>// Function Component
+    function FunctionComponent() {
+        return &lt;h1&gt;Hello from Function Component!&lt;/h1&gt;;
+    }</code></pre><p id="dc4406c7-9f68-4643-b4f4-0dd68fdfeff1" class=""><strong>5. State/Props</strong></p><ul id="d39f3897-120a-4094-85a5-86d3056b99c5" class="bulleted-list"><li style="list-style-type:disc"><strong>State</strong>: Đối tượng chứa dữ liệu có thể thay đổi.</li></ul><ul id="8ddb4b4b-5f84-456a-83de-98105fb7e001" class="bulleted-list"><li style="list-style-type:disc">Là 1 Component</li></ul><pre id="10e1eeba-688b-4269-990b-4e15084062c0" class="code"><code>class StatefulComponent extends React.Component {
+        constructor() {
+            super();
+            this.state = {
+                count: 0
+            };
+        }
+    
+        render() {
+            return &lt;h1&gt;{this.state.count}&lt;/h1&gt;;
+        }
+    }</code></pre><ul id="b8df8f15-156d-403e-aaa4-47342bbbdecf" class="bulleted-list"><li style="list-style-type:disc"><strong>Props</strong>: Tham số đầu vào của component.</li></ul><pre id="cee4a98f-d441-40bf-a016-d09f655880bd" class="code"><code>function StatelessComponent(props) {
+        return &lt;h1&gt;{props.message}&lt;/h1&gt;;
+    }</code></pre><p id="69ff78cc-0041-40e9-8c72-dd43967f3151" class=""><strong>6. Ref</strong></p><ul id="f281c6c8-eec6-4be0-8e34-e0dbbb620d25" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Truy cập trực tiếp phần tử DOM hoặc instance của component.</li></ul><pre id="82702662-fb08-4178-a9fc-60de47eb38a0" class="code"><code>class RefComponent extends React.Component {
+        constructor(props) {
+            super(props);
+            this.myRef = React.createRef();
+        }
+    
+        componentDidMount() {
+            this.myRef.current.focus();
+        }
+    
+        render() {
+            return &lt;input ref={this.myRef} /&gt;;
+        }
+    }</code></pre><p id="4cd86b5d-ff06-44ec-9327-d41780cb7430" class=""><strong>7. Handle Event</strong></p><ul id="f960d35c-aefb-4bc5-975e-97fb45393fca" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Xử lý sự kiện như click, input, etc.</li></ul><pre id="2a111033-5984-41dd-b862-8e8fe1275de6" class="code"><code>class EventComponent extends React.Component {
+        handleClick() {
+            alert('Button was clicked!');
+        }
+    
+        render() {
+            return &lt;button onClick={this.handleClick}&gt;Click Me!&lt;/button&gt;;
+        }
+    }</code></pre><p id="fe2541bd-d4bb-4f12-ba55-b89b2fd8df0a" class=""><strong>8. React Hook + Lifecycle</strong></p><ul id="0f511b70-1a66-4e8d-9fbb-c552dfe6eca1" class="bulleted-list"><li style="list-style-type:disc"><strong>Hooks</strong>: Functions kết nối tính năng React mà không cần class.</li></ul><pre id="b42cdce1-8655-4765-ac7b-8101fb5d77a5" class="code"><code>import { useState, useEffect } from 'react';
+    
+    function HookComponent() {
+        const [count, setCount] = useState(0);
+    
+        useEffect(() =&gt; {
+            document.title = `You clicked ${count} times`;
+    
+            return () =&gt; {
+                console.log('Cleanup on component unmount');
+            };
+        }, [count]);
+    
+        return (
+            &lt;div&gt;
+                &lt;p&gt;You clicked {count} times&lt;/p&gt;
+                &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt;
+            &lt;/div&gt;
+        );
+    }</code></pre><hr id="8c4fb6a7-9ce9-4445-b38d-b604edca7b97"><h3 id="5cfe2be8-806f-4006-af91-cb52309cb40d" class=""><strong>Advanced JavaScript Techniques</strong></h3><p id="b174c076-bd64-4713-9782-5ffaad9d90a5" class=""><strong>1. forEach(Item, index , array)</strong></p><ul id="004abb7e-a85a-4606-b389-f31853385c13" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Thực thi hàm cho mỗi phần tử. Không trả về mảng mới.</li></ul><pre id="6344f88f-6d50-4f4f-8027-c883c8c3ee65" class="code"><code>const numbers = [1, 2, 3];
+    numbers.forEach(num =&gt; console.log(num));</code></pre><p id="0a19e9ca-cb0b-4a77-ab34-38930ada6a4d" class=""><strong>2. filter(value, index, array)</strong></p><ul id="e3307100-cfba-4148-ad41-fd6eb23a8980" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả:  </strong>Tìm kiếm phần tử trong hàm </li></ul><pre id="941e3725-67df-4900-b47b-a2d1070ca5f7" class="code"><code>const numbers = [1, 2, 3, 4];
+    const evenNumbers = numbers.filter(num =&gt; num % 2 === 0);
+    console.log(evenNumbers);</code></pre><p id="68bc8a79-96d1-4461-9c06-f68ee46caef4" class=""><strong>3. map(Item, index , array)</strong></p><ul id="2d5a92dd-ff24-4942-9490-b352b23ee1d6" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Tạo mảng mới dựa trên biến đổi nào đó.</li></ul><pre id="678df4af-aac5-458c-a9ee-78d219da21c8" class="code"><code>const numbers = [1, 2, 3];
+    const doubledNumbers = numbers.map(num =&gt; num * 2);
+    console.log(doubledNumbers);</code></pre><p id="65f6d86a-796a-4203-8a71-d99d1dbc1a4c" class=""><strong>4. reduce(previousValue , currentValue , currentIndex , Array )</strong></p><ul id="98745858-5db9-4895-95d4-8d0d26175232" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Biến đổi mảng dựa trên giá trị tích lũy.</li></ul><pre id="f22fc916-5552-4aa2-a45c-a0ec1b30c9cd" class="code"><code>const numbers = [1, 2, 3];
+    const sum = numbers.reduce((accumulator, num , index , array) =&gt; accumulator + num, 0);
+    console.log(sum);</code></pre><p id="fa778d7e-6aa5-4a85-87c7-e22df7ac241b" class=""><strong>5. Spread &amp; Rest</strong></p><ul id="85cf54a3-d86d-4474-a203-64df2144cc8a" class="bulleted-list"><li style="list-style-type:disc"><strong>Spread</strong>: "Trải" giá trị ra.</li></ul><pre id="8190e56d-db4d-4b93-908e-63a91948ffb8" class="code"><code>const oldArray = [1, 2, 3];
+    const newArray = [...oldArray, 4, 5];</code></pre><ul id="ee0deef2-274d-44e3-aa41-397ccee85299" class="bulleted-list"><li style="list-style-type:disc"><strong>Rest</strong>: "Thu gom" giá trị lại.</li></ul><pre id="485a740b-645b-4db9-b2ae-2f3252d52673" class="code"><code>function logArgs(...args) {
+        console.log(args);
+    }
+    
+    logArgs(1, 2, 3, 4, 5);</code></pre><p id="49424266-b7ba-41da-9c23-ccaef6c24b55" class=""><strong>6. Optional chaining</strong></p><ul id="6efd14cf-ba61-4b3a-9955-28486a0c4f18" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Truy cập thuộc tính mà không cần kiểm tra tồn tại.</li></ul><pre id="9be0fe2f-0c7d-4d64-a32b-078a7b54f0fa" class="code"><code>const user = {
+        name: "John",
+        address: {
+            street: "123 Main St."
+        }
+    };
+    
+    console.log(user?.address?.city);  // Output: undefined without any error</code></pre></div></article></body></html>
