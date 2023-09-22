@@ -673,7 +673,7 @@
         background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
     }
         
-    </style></head><body><article id="66ec731c-d1f3-46d2-a242-1a52abd1b7b9" class="page serif"><header><div class="page-header-icon undefined"><span class="icon">✍🏼</span></div><h1 class="page-title"><strong><strong>JavaScript &amp; React - Tóm tắt kiến thức</strong></strong> </h1><p class="page-description"></p></header><div class="page-body"><h3 id="d2b2c19d-09d5-45e3-948a-c56ee93aeee7" class="">Các khái niệm <strong>JavaScript </strong></h3><p id="f4f2fa7f-c6df-4be2-8d6a-fafd087ac9e9" class=""><strong>1. ES6 (ES2015)</strong></p><ul id="18e78786-1ae3-4aeb-8e26-934a3a5700a0" class="bulleted-list"><li style="list-style-type:disc"><strong>Định nghĩa</strong>: Phiên bản cập nhật lớn nhất của JavaScript, mang đến nhiều tính năng mới và cải tiến.</li></ul><p id="a0e74709-62b2-4bd1-9564-b148fab035fc" class=""><strong>2. Arrow Functions</strong></p><ul id="c4233083-e34f-4d93-82c7-b1e2d72ee704" class="bulleted-list"><li style="list-style-type:disc"><strong>Định nghĩa</strong>: Cách mới và ngắn gọn hơn để viết function.</li></ul><ul id="f81bb058-a040-4e8d-adcd-49cca086398a" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>: <code><strong>(a, b) =&gt; a + b</strong></code> thay vì <code><strong>function(a, b) { return a + b; }</strong></code>.</li></ul><p id="5e09897d-97a1-4eb5-b59b-5c4cb14fbbcf" class=""><strong>3. Asynchronize in JS</strong></p><ul id="46c80a36-f0a6-4cbc-834a-13a7fe2bccdc" class="bulleted-list"><li style="list-style-type:disc"><strong>Callback</strong>: Hàm truyền như tham số, thực thi sau khi hàm chứa hoàn tất.</li></ul><pre id="fafbc706-dccc-4c77-82dc-852031b81568" class="code"><code>function greeting(name, callback) {
+    </style></head><body><article id="66ec731c-d1f3-46d2-a242-1a52abd1b7b9" class="page serif"><header><div class="page-header-icon undefined"><span class="icon">✍🏼</span></div><h1 class="page-title"><strong><strong>JavaScript &amp; React - Tóm tắt kiến thức</strong></strong> </h1><p class="page-description"></p></header><div class="page-body"><h3 id="d2b2c19d-09d5-45e3-948a-c56ee93aeee7" class="">Các khái niệm <strong>JavaScript </strong></h3><p id="f4f2fa7f-c6df-4be2-8d6a-fafd087ac9e9" class=""><strong>1. ES6 (ES2015)</strong></p><ul id="18e78786-1ae3-4aeb-8e26-934a3a5700a0" class="bulleted-list"><li style="list-style-type:disc"><strong>Định nghĩa</strong>: Phiên bản cập nhật lớn nhất của JavaScript, mang đến nhiều tính năng mới và cải tiến.</li></ul><p id="a0e74709-62b2-4bd1-9564-b148fab035fc" class=""><strong>2. Arrow Functions</strong></p><ul id="c4233083-e34f-4d93-82c7-b1e2d72ee704" class="bulleted-list"><li style="list-style-type:disc"><strong>Định nghĩa</strong>: Cách mới và ngắn gọn hơn để viết function.</li></ul><ul id="f81bb058-a040-4e8d-adcd-49cca086398a" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>: <code><strong>(a, b) =&gt; a + b</strong></code> thay vì <code><strong>function(a, b) { return a + b; }</strong></code>.</li></ul><p id="5e09897d-97a1-4eb5-b59b-5c4cb14fbbcf" class=""><strong>3. Asynchronize in JS</strong></p><ul id="46c80a36-f0a6-4cbc-834a-13a7fe2bccdc" class="bulleted-list"><li style="list-style-type:disc"><strong>Callback</strong>: Hàm truyền như tham số, thực thi sau khi hàm chứa hoàn tất .</li></ul><pre id="fafbc706-dccc-4c77-82dc-852031b81568" class="code"><code>function greeting(name, callback) {
         console.log(`Hello ${name}`);
         callback();
     }
@@ -882,7 +882,55 @@
                 &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt;
             &lt;/div&gt;
         );
-    }</code></pre><hr id="8c4fb6a7-9ce9-4445-b38d-b604edca7b97"><h3 id="5cfe2be8-806f-4006-af91-cb52309cb40d" class=""><strong>Advanced JavaScript Techniques</strong></h3><p id="b174c076-bd64-4713-9782-5ffaad9d90a5" class=""><strong>1. forEach(Item, index , array)</strong></p><ul id="004abb7e-a85a-4606-b389-f31853385c13" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Thực thi hàm cho mỗi phần tử. Không trả về mảng mới.</li></ul><pre id="6344f88f-6d50-4f4f-8027-c883c8c3ee65" class="code"><code>const numbers = [1, 2, 3];
+    }</code></pre><p id="6e704061-8312-4a21-af46-b6f8d939eb5c" class=""><strong>9.  useCallback và useMemo </strong></p><ul id="bdca5b5e-7d11-4db7-8947-83c24fa686e6" class="bulleted-list"><li style="list-style-type:disc">    <code><strong>useCallback</strong></code> là một hook trong React được sử dụng để tránh việc tạo ra một function mới mỗi khi component được re-render.</li></ul><ul id="a78ba344-7183-4876-9a28-339f243b35c8" class="bulleted-list"><li style="list-style-type:disc"> Nó nhận vào hai tham số: một function và một mảng dependencies. Khi các dependencies không thay đổi qua các lần re-render, <code><strong>useCallback</strong></code> sẽ trả lại phiên bản cũ của function, thay vì tạo ra một bản mới.</li></ul><ul id="908d3771-211c-4b03-9988-11e7368fad31" class="bulleted-list"><li style="list-style-type:disc">Điều này hữu ích khi bạn muốn tránh việc re-render không cần thiết của các component con khi truyền function như props.</li></ul><p id="a1abec48-b359-48a5-9a15-ad7ada2a48cd" class="">  </p><div class="indented"><pre id="d23caaf6-cdd0-4b3e-a282-ac796f797dda" class="code"><code>import React, { useState, useEffect, useCallback } from 'react';
+    
+    function App() {
+      // Giả sử state ban đầu là một mảng có 5 phần tử
+      const [items, setItems] = useState([1, 2, 3, 4, 5]);
+    
+      // Hàm callback được định nghĩa thông qua useCallback
+      const handleExceedLimit = useCallback(() =&gt; {
+        console.log('Số lượng phần tử đã vượt quá giới hạn!');
+        // Bạn có thể thêm logic xử lý ở đây
+      }, []);
+    
+      useEffect(() =&gt; {
+        // Khi số lượng phần tử vượt quá 7
+        if (items.length &gt; 7) {
+          handleExceedLimit();
+        }
+      }, [items, handleExceedLimit]);
+    
+      return (
+        &lt;div&gt;
+          &lt;ul&gt;
+            {items.map(item =&gt; (
+              &lt;li key={item}&gt;{item}&lt;/li&gt;
+            ))}
+          &lt;/ul&gt;
+          &lt;button onClick={() =&gt; setItems([...items, items.length + 1])}&gt;
+            Thêm phần tử
+          &lt;/button&gt;
+        &lt;/div&gt;
+      );
+    }
+    
+    export default App;
+    // Ban đầu, items là một mảng có 5 phần tử.
+    //Khi người dùng nhấp vào nút "Thêm phần tử", một phần tử mới sẽ được thêm vào mảng.
+    //useEffect theo dõi sự thay đổi của items.
+    //Khi số lượng phần tử trong items vượt quá 7, hàm handleExceedLimit sẽ được gọi.</code></pre><p id="653fc8ee-2c26-4690-83c4-971ac2787ba2" class="">
+    </p><ul id="96ceca23-d778-4a43-8996-4cc2f1460248" class="bulleted-list"><li style="list-style-type:disc"><code><strong>useMemo</strong></code> giúp tránh việc tính toán lại giá trị mỗi khi component re-render, trừ khi một trong các dependencies đã thay đổi.</li></ul><ul id="f01cf2cf-2b32-4b62-a410-f2bd85e12d4a" class="bulleted-list"><li style="list-style-type:disc">Điều này hữu ích cho các tính toán phức tạp mà bạn không muốn thực hiện mỗi lần component re-render.</li></ul><ul id="beb34173-83ae-4c89-b0b0-094d56d6e595" class="bulleted-list"><li style="list-style-type:disc"><code><strong>useMemo</strong></code> cũng nhận hai tham số: một function tạo ra giá trị cần được ghi nhớ và một mảng dependencies.</li></ul><pre id="ddbee181-0d63-4aa7-a38a-b454c842bf38" class="code"><code>function Total({ numbers }) {
+      const total = useMemo(() =&gt; {
+        console.log("Tính toán tổng...");
+        return numbers.reduce((sum, num) =&gt; sum + num, 0);
+      }, [numbers]);
+    
+      return &lt;div&gt;Tổng: {total}&lt;/div&gt;;
+    }
+    //mỗi khi numbers thay đổi, useMemo sẽ thực hiện tính toán mới. 
+    //Nhưng nếu numbers không thay đổi giữa các lần render, nó sẽ sử dụng giá trị memoized, tránh việc thực hiện các tính toán không cần thiết.</code></pre><ul id="1f4a3028-9e28-4d54-8a72-5299fb329027" class="toggle"><li><details open=""><summary><strong>Sự khác biệt giữa hai cái</strong>:</summary><p id="d5aefd86-9188-4bbe-9160-17646d67bc8d" class="">
+    </p></details></li></ul><ul id="f405d134-eddc-45a8-b799-67539ebfffef" class="bulleted-list"><li style="list-style-type:disc">Mặc dù cả hai đều dựa trên khái niệm memoization và đều sử dụng một mảng dependencies, <code><strong>useCallback</strong></code> trả lại một function memoized trong khi <code><strong>useMemo</strong></code> trả lại giá trị mà function tạo ra.</li></ul><p id="9952b369-47fc-425d-9dcd-c3689a5a9ee2" class=""><strong>Về hiệu suất</strong>:</p><ul id="e5a1413e-6757-45ba-aa89-9f4f8ba09a02" class="bulleted-list"><li style="list-style-type:disc">Sử dụng <code><strong>useCallback</strong></code> và <code><strong>useMemo</strong></code> không phải lúc nào cũng mang lại lợi ích về hiệu suất. Thực tế, trong nhiều trường hợp, việc sử dụng chúng mà không cần thiết có thể làm giảm hiệu suất bởi vì việc tạo ra các hooks cũng tốn một chút thời gian. Chính vì vậy, bạn nên chỉ sử dụng chúng khi thực sự cần thiết và sau khi đã đo lường hiệu suất.</li></ul></div><p></p><hr id="8c4fb6a7-9ce9-4445-b38d-b604edca7b97"><h3 id="5cfe2be8-806f-4006-af91-cb52309cb40d" class=""><strong>Advanced JavaScript Techniques</strong></h3><p id="b174c076-bd64-4713-9782-5ffaad9d90a5" class=""><strong>1. forEach(Item, index , array)</strong></p><ul id="004abb7e-a85a-4606-b389-f31853385c13" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Thực thi hàm cho mỗi phần tử. Không trả về mảng mới.</li></ul><pre id="6344f88f-6d50-4f4f-8027-c883c8c3ee65" class="code"><code>const numbers = [1, 2, 3];
     numbers.forEach(num =&gt; console.log(num));</code></pre><p id="0a19e9ca-cb0b-4a77-ab34-38930ada6a4d" class=""><strong>2. filter(value, index, array)</strong></p><ul id="e3307100-cfba-4148-ad41-fd6eb23a8980" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả:  </strong>Tìm kiếm phần tử trong hàm </li></ul><pre id="941e3725-67df-4900-b47b-a2d1070ca5f7" class="code"><code>const numbers = [1, 2, 3, 4];
     const evenNumbers = numbers.filter(num =&gt; num % 2 === 0);
     console.log(evenNumbers);</code></pre><p id="68bc8a79-96d1-4461-9c06-f68ee46caef4" class=""><strong>3. map(Item, index , array)</strong></p><ul id="2d5a92dd-ff24-4942-9490-b352b23ee1d6" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Tạo mảng mới dựa trên biến đổi nào đó.</li></ul><pre id="678df4af-aac5-458c-a9ee-78d219da21c8" class="code"><code>const numbers = [1, 2, 3];
