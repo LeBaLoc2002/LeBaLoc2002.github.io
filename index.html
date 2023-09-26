@@ -821,7 +821,27 @@
         render() {
             return &lt;h1&gt;Hello, Lifecycle!&lt;/h1&gt;;
         }
-    }</code></pre><p id="707dabc8-f5a0-4adf-b2fe-387a1278e777" class=""><strong>4. Types of Components</strong></p><ul id="c2cc8d97-1180-46d2-9973-ea805321e3de" class="bulleted-list"><li style="list-style-type:disc"><strong>Class component</strong>: Viết dưới dạng class ES6, là một class ES6 kế thừa từ <code><strong>React.Component</strong></code>.</li></ul><p id="391b62f3-1ae6-4e93-84e4-a0b75b94c3d3" class=""><strong>Cách hoạt động</strong>:</p><ol type="1" id="56cc7d30-a968-4809-9a16-f3ae8d882556" class="numbered-list" start="1"><li>Có một phương thức <code><strong>render()</strong></code> bắt buộc, trả về JSX.</li></ol><ol type="1" id="aea0ce6b-3a07-4ecd-aea6-dd8b01b8c151" class="numbered-list" start="2"><li>Có thể sử dụng trạng thái (state) và vòng đời (lifecycle methods).</li></ol><ol type="1" id="5b13e792-feb4-4c1c-a360-417566c62f63" class="numbered-list" start="3"><li>Trạng thái được quản lý bên trong component và có thể thay đổi theo thời gian.</li></ol><pre id="2395f7be-9b10-4f0a-a553-4deaa58a3729" class="code"><code>// Class Component
+    }</code></pre><ul id="4450883b-5256-4663-8eb7-41b29b804751" class="bulleted-list"><li style="list-style-type:disc"><strong>Từ React 16.3 trở đi</strong>, một số phương thức vòng đời mới đã được giới thiệu và một số phương thức cũ không an toàn đã được đánh dấu là sắp bị khai tử:</li></ul><pre id="cbf7c6b5-70b2-40a5-82e3-efdad7ea4061" class="code"><code>import React, { useState, useEffect } from 'react';
+    
+    function DemoHookComponent() { 
+      const [count, setCount] = useState(0); //Initialization (Khởi tạo): 1
+    
+      useEffect(() =&gt; {
+        console.log('Component đã được gắn kết hoặc cập nhật.'); // Mounting (Gắn kết): 2
+        return () =&gt; {
+          console.log('Cleanup: Component sắp được gỡ bỏ hoặc trước khi cập nhật lại.'); //5
+        }
+      });
+    
+      return ( // Rendering 3
+        &lt;div&gt;
+          &lt;p&gt;Đếm: {count}&lt;/p&gt; 
+          &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Tăng&lt;/button&gt; //Updating (Cập nhật) 4
+        &lt;/div&gt;
+      );
+    }
+    
+    export default DemoHookComponent;</code></pre><p id="707dabc8-f5a0-4adf-b2fe-387a1278e777" class=""><strong>4. Types of Components</strong></p><ul id="c2cc8d97-1180-46d2-9973-ea805321e3de" class="bulleted-list"><li style="list-style-type:disc"><strong>Class component</strong>: Viết dưới dạng class ES6, là một class ES6 kế thừa từ <code><strong>React.Component</strong></code>.</li></ul><p id="391b62f3-1ae6-4e93-84e4-a0b75b94c3d3" class=""><strong>Cách hoạt động</strong>:</p><ol type="1" id="56cc7d30-a968-4809-9a16-f3ae8d882556" class="numbered-list" start="1"><li>Có một phương thức <code><strong>render()</strong></code> bắt buộc, trả về JSX.</li></ol><ol type="1" id="aea0ce6b-3a07-4ecd-aea6-dd8b01b8c151" class="numbered-list" start="2"><li>Có thể sử dụng trạng thái (state) và vòng đời (lifecycle methods).</li></ol><ol type="1" id="5b13e792-feb4-4c1c-a360-417566c62f63" class="numbered-list" start="3"><li>Trạng thái được quản lý bên trong component và có thể thay đổi theo thời gian.</li></ol><pre id="2395f7be-9b10-4f0a-a553-4deaa58a3729" class="code"><code>// Class Component
     class ClassComponent extends React.Component {
         render() {
             return &lt;h1&gt;Hello from Class Component!&lt;/h1&gt;;
@@ -933,7 +953,7 @@
       return &lt;div&gt;Tổng: {total}&lt;/div&gt;;
     }
     //mỗi khi numbers thay đổi, useMemo sẽ thực hiện tính toán mới. 
-    //Nhưng nếu numbers không thay đổi giữa các lần render, nó sẽ sử dụng giá trị memoized, tránh việc thực hiện các tính toán không cần thiết.</code></pre><ul id="1f4a3028-9e28-4d54-8a72-5299fb329027" class="toggle"><li><details open=""><summary><strong>Sự khác biệt giữa hai cái</strong>:</summary><p id="d5aefd86-9188-4bbe-9160-17646d67bc8d" class="">
+    //Nhưng nếu numbers không thay đổi giữa các lần render, nó sẽ sử dụng giá trị memoized,tránh việc thực hiện các tính toán không cần thiết.</code></pre><ul id="1f4a3028-9e28-4d54-8a72-5299fb329027" class="toggle"><li><details open=""><summary><strong>Sự khác biệt giữa hai cái</strong>:</summary><p id="d5aefd86-9188-4bbe-9160-17646d67bc8d" class="">
     </p></details></li></ul><ul id="f405d134-eddc-45a8-b799-67539ebfffef" class="bulleted-list"><li style="list-style-type:disc">Mặc dù cả hai đều dựa trên khái niệm memoization và đều sử dụng một mảng dependencies, <code><strong>useCallback</strong></code> trả lại một function memoized trong khi <code><strong>useMemo</strong></code> trả lại giá trị mà function tạo ra.</li></ul><p id="9952b369-47fc-425d-9dcd-c3689a5a9ee2" class=""><strong>Về hiệu suất</strong>:</p><ul id="e5a1413e-6757-45ba-aa89-9f4f8ba09a02" class="bulleted-list"><li style="list-style-type:disc">Sử dụng <code><strong>useCallback</strong></code> và <code><strong>useMemo</strong></code> không phải lúc nào cũng mang lại lợi ích về hiệu suất. Thực tế, trong nhiều trường hợp, việc sử dụng chúng mà không cần thiết có thể làm giảm hiệu suất bởi vì việc tạo ra các hooks cũng tốn một chút thời gian. Chính vì vậy, bạn nên chỉ sử dụng chúng khi thực sự cần thiết và sau khi đã đo lường hiệu suất.</li></ul></div><p></p><hr id="8c4fb6a7-9ce9-4445-b38d-b604edca7b97"><h3 id="5cfe2be8-806f-4006-af91-cb52309cb40d" class=""><strong>Advanced JavaScript Techniques</strong></h3><p id="b174c076-bd64-4713-9782-5ffaad9d90a5" class=""><strong>1. forEach(Item, index , array)</strong></p><ul id="004abb7e-a85a-4606-b389-f31853385c13" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Thực thi hàm cho mỗi phần tử. Không trả về mảng mới.</li></ul><pre id="6344f88f-6d50-4f4f-8027-c883c8c3ee65" class="code"><code>const numbers = [1, 2, 3];
     numbers.forEach(num =&gt; console.log(num));</code></pre><p id="0a19e9ca-cb0b-4a77-ab34-38930ada6a4d" class=""><strong>2. filter(value, index, array)</strong></p><ul id="e3307100-cfba-4148-ad41-fd6eb23a8980" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả:  </strong>Tìm kiếm phần tử trong hàm </li></ul><pre id="941e3725-67df-4900-b47b-a2d1070ca5f7" class="code"><code>const numbers = [1, 2, 3, 4];
     const evenNumbers = numbers.filter(num =&gt; num % 2 === 0);
