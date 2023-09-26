@@ -1,4 +1,5 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>JavaScript &amp; React - Tóm tắt kiến thức </title><style>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>JavaScript &amp; React - Tóm tắt kiến thức </title><style>
     /* cspell:disable-file */
     /* webkit printing magic: print all background colors */
     html {
@@ -679,42 +680,42 @@
     }
     
     function alertFinished() {
-        console.log("Greeting is finished!");
+        console.log(&quot;Greeting is finished!&quot;);
     }
     
-    greeting("John", alertFinished);</code></pre><ul id="a68c727b-7617-454c-86c8-a471738e564a" class="bulleted-list"><li style="list-style-type:disc"><strong>Promise</strong>: Đối tượng đại diện cho sự hoàn thành của một thao tác bất đồng bộ.</li></ul><p id="ba07dd82-e5d1-4466-8fd1-7d37521a72be" class=""><strong>Cách hoạt động</strong>:</p><ol type="1" id="8adb6031-602c-48f7-b409-1914964aaf9e" class="numbered-list" start="1"><li>Một <code><strong>Promise</strong></code> có ba trạng thái: <code><strong>pending</strong></code> (đang chờ), <code><strong>fulfilled</strong></code> (hoàn thành), và <code><strong>rejected</strong></code> (bị từ chối).</li></ol><ol type="1" id="822cb997-13bf-4981-8c31-635ef0a804e3" class="numbered-list" start="2"><li>Khi một <code><strong>Promise</strong></code> được tạo ra, nó ở trạng thái <code><strong>pending</strong></code>.</li></ol><ol type="1" id="3823e5b1-ef5f-46a5-a528-d57ee29b46ce" class="numbered-list" start="3"><li>Khi kết quả được trả về, nó chuyển sang trạng thái <code><strong>fulfilled</strong></code> hoặc <code><strong>rejected</strong></code>.</li></ol><pre id="df95344b-3318-446a-9206-8e89b44a41e8" class="code"><code>const promiseExample = new Promise((resolve, reject) =&gt; {
+    greeting(&quot;John&quot;, alertFinished);</code></pre><ul id="a68c727b-7617-454c-86c8-a471738e564a" class="bulleted-list"><li style="list-style-type:disc"><strong>Promise</strong>: Đối tượng đại diện cho sự hoàn thành của một thao tác bất đồng bộ.</li></ul><p id="ba07dd82-e5d1-4466-8fd1-7d37521a72be" class=""><strong>Cách hoạt động</strong>:</p><ol type="1" id="8adb6031-602c-48f7-b409-1914964aaf9e" class="numbered-list" start="1"><li>Một <code><strong>Promise</strong></code> có ba trạng thái: <code><strong>pending</strong></code> (đang chờ), <code><strong>fulfilled</strong></code> (hoàn thành), và <code><strong>rejected</strong></code> (bị từ chối).</li></ol><ol type="1" id="822cb997-13bf-4981-8c31-635ef0a804e3" class="numbered-list" start="2"><li>Khi một <code><strong>Promise</strong></code> được tạo ra, nó ở trạng thái <code><strong>pending</strong></code>.</li></ol><ol type="1" id="3823e5b1-ef5f-46a5-a528-d57ee29b46ce" class="numbered-list" start="3"><li>Khi kết quả được trả về, nó chuyển sang trạng thái <code><strong>fulfilled</strong></code> hoặc <code><strong>rejected</strong></code>.</li></ol><pre id="df95344b-3318-446a-9206-8e89b44a41e8" class="code"><code>const promiseExample = new Promise((resolve, reject) =&gt; {
         setTimeout(() =&gt; {
-            resolve("Promise is resolved!");
-            // Or you could reject("Promise was rejected!");
+            resolve(&quot;Promise is resolved!&quot;);
+            // Or you could reject(&quot;Promise was rejected!&quot;);
         }, 1000);
     });
     
     promiseExample.then((message) =&gt; {
-        console.log(message);  // Output: "Promise is resolved!"
+        console.log(message);  // Output: &quot;Promise is resolved!&quot;
     }).catch((error) =&gt; {
         console.log(error);
     });</code></pre><ul id="2da82ecb-4ec6-41bf-ac5f-7ba98f15272d" class="bulleted-list"><li style="list-style-type:disc"><strong>async/await</strong>: Làm việc với bất đồng bộ dễ dàng và rõ ràng.</li></ul><p id="8c90bb5d-f3e5-46dd-b227-06e833e794c8" class=""><strong>Cách hoạt động</strong>:</p><ol type="1" id="4b937a0a-7782-493a-81fd-e2b35b9ae070" class="numbered-list" start="1"><li>Từ khóa <code><strong>async</strong></code> trước một function nghĩa là function sẽ trả về một <code><strong>Promise</strong></code>.</li></ol><ol type="1" id="03d6131c-dafc-4377-a9d1-773537a3d3b9" class="numbered-list" start="2"><li>Từ khóa <code><strong>await</strong></code> chỉ có thể được sử dụng trong một function được định nghĩa với <code><strong>async</strong></code>. Nó giúp mã dừng lại và đợi cho đến khi <code><strong>Promise</strong></code> được giải quyết.</li></ol><pre id="35996751-2486-4677-81bf-d0f1993d2271" class="code"><code>const asyncFunction = async () =&gt; {
         const result = await promiseExample;  // waiting for the promise to resolve
-        console.log(result);  // Output: "Promise is resolved!"
+        console.log(result);  // Output: &quot;Promise is resolved!&quot;
     };
     
     asyncFunction().catch((error) =&gt; {
         console.log(error);
     });</code></pre><p id="6f0713e3-ea37-45b9-986a-d7f521fd406f" class=""><strong>4. this &amp; OOP</strong></p><ul id="2219e1b7-f7d6-44bb-bfb1-69ef043466bf" class="bulleted-list"><li style="list-style-type:disc"><strong>this</strong>: Tham chiếu đến đối tượng hiện tại.</li></ul><pre id="50a687ee-792b-4f4b-aff4-7e53d7640222" class="code"><code>const person = {
-        name: "John",
+        name: &quot;John&quot;,
         sayHello: function() {
             console.log(`Hello, my name is ${this.name}`);
         }
     };
     
-    person.sayHello();  // Output: "Hello, my name is John"</code></pre><p id="4fd7a773-b988-4ace-8a14-dc1f43519b31" class="">Tuy nhiên, lưu ý rằng <code><strong>this</strong></code> trong arrow functions không hoạt động theo cùng một cách: qua trung gian </p><pre id="fa7a53cc-5193-4808-bcf5-7e3b8ebb867f" class="code"><code>const personArrow = {
-        name: "John",
+    person.sayHello();  // Output: &quot;Hello, my name is John&quot;</code></pre><p id="4fd7a773-b988-4ace-8a14-dc1f43519b31" class="">Tuy nhiên, lưu ý rằng <code><strong>this</strong></code> trong arrow functions không hoạt động theo cùng một cách: qua trung gian </p><pre id="fa7a53cc-5193-4808-bcf5-7e3b8ebb867f" class="code"><code>const personArrow = {
+        name: &quot;John&quot;,
         sayHello: () =&gt; {
             console.log(`Hello, my name is ${this.name}`);
         }
     };
     
-    personArrow.sayHello();  // Output: "Hello, my name is undefined"</code></pre><pre id="8229475d-9a40-43b9-ac92-abd6057019a9" class="code"><code>function Person() {
+    personArrow.sayHello();  // Output: &quot;Hello, my name is undefined&quot;</code></pre><pre id="8229475d-9a40-43b9-ac92-abd6057019a9" class="code"><code>function Person() {
       this.age = 0;
     
       // Sử dụng arrow function
@@ -754,82 +755,105 @@
         }
     }
     
-    const dog = new Dog('Rex');
-    dog.speak();  // Output: "Rex barks."
+    const dog = new Dog(&#x27;Rex&#x27;);
+    dog.speak();  // Output: &quot;Rex barks.&quot;
     
-    const genericAnimal = new Animal('Animal');
-    genericAnimal.speak();  // Output: "Animal makes a noise."
+    const genericAnimal = new Animal(&#x27;Animal&#x27;);
+    genericAnimal.speak();  // Output: &quot;Animal makes a noise.&quot;
     </code></pre><p id="b8dcc836-8516-4ba1-a0f5-23911913679e" class=""><strong>5. Basic Syntax</strong></p><p id="d189741a-90af-42c3-853a-be6dd0af666d" class=""><strong>Biến</strong></p><pre id="97710bc7-8d6d-46c7-b714-e97d443b9716" class="code"><code>// ES6 introduces let and const for variable declaration
-    let variable = "ES6 variable";
-    const constantVariable = "This value cannot change";</code></pre><p id="47dcc478-9e88-4b44-ba04-dfaf346f0c52" class=""><strong>Các kiểu dữ liệu</strong></p><pre id="823d493a-5629-41ba-bd19-b2ef55ec09b0" class="code"><code>let number = 123;
-    let string = "Hello, World!";
+    let variable = &quot;ES6 variable&quot;;
+    const constantVariable = &quot;This value cannot change&quot;;</code></pre><p id="47dcc478-9e88-4b44-ba04-dfaf346f0c52" class=""><strong>Các kiểu dữ liệu</strong></p><pre id="823d493a-5629-41ba-bd19-b2ef55ec09b0" class="code"><code>let number = 123;
+    let string = &quot;Hello, World!&quot;;
     let boolean = true;
-    let object = { firstName: "John", lastName: "Doe" };
+    let object = { firstName: &quot;John&quot;, lastName: &quot;Doe&quot; };
     let array = [1, 2, 3, 4];</code></pre><p id="5e294bad-3a38-4a15-bb73-37dc59e6b043" class=""><strong>Chức năng</strong></p><pre id="c4d8db57-c9b8-441d-9df0-27ac3e0603ec" class="code"><code>function greet(name) {
-      return "Hello, " + name + "!";
+      return &quot;Hello, &quot; + name + &quot;!&quot;;
     }</code></pre><p id="0c0a281f-cd04-404c-8151-6a9e78a97807" class=""><strong>Câu lệnh điều kiện</strong></p><pre id="9dbe4156-4739-48ab-9e48-2d315727e575" class="code"><code>const b = 14
     
     if(b &gt; 15 ){
-        console.log('oke');
+        console.log(&#x27;oke&#x27;);
     }
     else{
-        console.log('loi');
+        console.log(&#x27;loi&#x27;);
     }</code></pre><p id="04339d79-13aa-4b8e-abc2-9965fee6ca23" class=""><strong>Vòng lặp</strong></p><pre id="23f67cd9-6015-4027-b46f-0e44cab569d2" class="code"><code>const number =  [1,2,3,4,5,6]
-    for(let a = 1; a &lt; numbẻ.length; a ++)</code></pre><p id="e8133dc3-2d6b-42f7-b23f-467c7a37b2bb" class=""><strong>6. DOM </strong></p><p id="0c5f3bfb-f8df-4970-95eb-2442f138a848" class=""><strong>Truy cập phần tử</strong>:</p><pre id="815e9f47-8ff4-47e2-917c-aa2c290cc450" class="code"><code>document.getElementById('elementId');
-    document.querySelector('.className');</code></pre><p id="d6947dcf-1d98-472e-8cb2-e01e96a90540" class=""><strong>Thay đổi nội dung</strong>:</p><pre id="0b13fcfb-92b7-4cff-b979-deb91a9023cb" class="code"><code>let rename = document.getElementById('elementId');
-    rename.innerHTML = 'Stdio'</code></pre><p id="77d4152a-36bc-437e-897e-089ad2fc2b0c" class=""><strong>Thêm/Xóa lớp CSS</strong>:</p><pre id="31a47ad8-0116-48b8-b4bf-e5f9082a20a7" class="code"><code>element.classList.add('new-class');
-    element.classList.remove('old-class');</code></pre><p id="7eab8a90-13c7-4dce-8ed4-4c8b3dbb2863" class=""><strong>7. BOM (Browser Object Model):</strong></p><p id="e45c2e75-a20f-47da-a573-53c57549d423" class=""><strong>Cửa sổ</strong>:</p><pre id="6328a083-c018-459e-a8c9-716f1283a527" class="code"><code>window.open();  // Mở một cửa sổ mới
+    for(let a = 1; a &lt; numbẻ.length; a ++)</code></pre><p id="e8133dc3-2d6b-42f7-b23f-467c7a37b2bb" class=""><strong>6. DOM </strong></p><p id="0c5f3bfb-f8df-4970-95eb-2442f138a848" class=""><strong>Truy cập phần tử</strong>:</p><pre id="815e9f47-8ff4-47e2-917c-aa2c290cc450" class="code"><code>document.getElementById(&#x27;elementId&#x27;);
+    document.querySelector(&#x27;.className&#x27;);</code></pre><p id="d6947dcf-1d98-472e-8cb2-e01e96a90540" class=""><strong>Thay đổi nội dung</strong>:</p><pre id="0b13fcfb-92b7-4cff-b979-deb91a9023cb" class="code"><code>let rename = document.getElementById(&#x27;elementId&#x27;);
+    rename.innerHTML = &#x27;Stdio&#x27;</code></pre><p id="77d4152a-36bc-437e-897e-089ad2fc2b0c" class=""><strong>Thêm/Xóa lớp CSS</strong>:</p><pre id="31a47ad8-0116-48b8-b4bf-e5f9082a20a7" class="code"><code>element.classList.add(&#x27;new-class&#x27;);
+    element.classList.remove(&#x27;old-class&#x27;);</code></pre><p id="7eab8a90-13c7-4dce-8ed4-4c8b3dbb2863" class=""><strong>7. BOM (Browser Object Model):</strong></p><p id="e45c2e75-a20f-47da-a573-53c57549d423" class=""><strong>Cửa sổ</strong>:</p><pre id="6328a083-c018-459e-a8c9-716f1283a527" class="code"><code>window.open();  // Mở một cửa sổ mới
     window.close(); // Đóng cửa sổ hiện tại
     window.innerWidth;  // Chiều rộng của viewport</code></pre><p id="3d400be8-bc03-4ccf-8256-8fe00bd9327b" class=""><strong>Vị trí</strong>:</p><pre id="bbdda127-e892-48f2-a920-663cad2a8f3b" class="code"><code>window.location.href;  // Chuyển về URL hiện tại</code></pre><p id="84868bad-ed1e-475d-956a-3c8bcd8ad393" class=""><strong>Lịch sử</strong>:</p><pre id="adc35167-38b3-4288-b9f1-d825b23817f0" class="code"><code>window.history.back();  // Quay lại trang trước</code></pre><p id="b68d0721-0fa1-43c3-8944-1bc08e696cd9" class=""><strong>Bộ định giờ</strong>:</p><pre id="3cdc171e-9c39-4a8a-a245-44e3c9682b65" class="code"><code>setTimeout(function, milliseconds); 
     //setTimeout sẽ chạy hàm chỉ một lần sau một khoảng thời gian đã được xác định (được chỉ định bằng milliseconds).
     
     setInterval(function, milliseconds);
-    //setInterval sẽ chạy hàm liên tục sau mỗi khoảng thời gian đã được xác định, cho đến khi bạn dừng nó hoặc trang web bị đóng.</code></pre><p id="6c234410-e24c-4fa2-bd81-e5ad1ae11d4d" class=""><strong>8. Column &amp; Grid System:</strong></p><pre id="d5d4edff-7c35-4026-b5c5-8367cd87f141" class="code"><code>&lt;div class="container"&gt;
-        &lt;div class="row"&gt;
-            &lt;div class="col-md-8"&gt;Column 1&lt;/div&gt;
-            &lt;div class="col-md-4"&gt;Column 2&lt;/div&gt;
+    //setInterval sẽ chạy hàm liên tục sau mỗi khoảng thời gian đã được xác định, cho đến khi bạn dừng nó hoặc trang web bị đóng.</code></pre><p id="6c234410-e24c-4fa2-bd81-e5ad1ae11d4d" class=""><strong>8. Column &amp; Grid System:</strong></p><pre id="d5d4edff-7c35-4026-b5c5-8367cd87f141" class="code"><code>&lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-md-8&quot;&gt;Column 1&lt;/div&gt;
+            &lt;div class=&quot;col-md-4&quot;&gt;Column 2&lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;</code></pre><p id="77b98610-6f31-4064-9ccf-b48dedf4faa3" class=""><strong>9. Helper Classes:</strong></p><pre id="e9421417-c6ac-43a8-b0ed-bcb3bc71dbce" class="code"><code>Màu sắc: .text-primary, .bg-danger, ...
     Khoảng cách: Padding (p-*) và Margin (m-*) như .mt-3 (margin-top 3 units), .pb-2 (padding-bottom 2 units).
-    Hiển thị: .d-none (ẩn), .d-block (block display), .d-flex (flexbox display) và nhiều class khác dành cho responsive design.</code></pre><hr id="9305fc36-a5fa-4428-a984-09dfa3a5d05a"><h3 id="115f914e-4b2a-47c5-acec-7a75f41be346" class="">Các khái niệm <strong>React </strong></h3><p id="61826f83-39c9-44bf-b6d1-49424b7c7e81" class=""><strong>1. React</strong></p><ul id="cfbd2ad9-b1c2-4d17-af75-ca5e8f938f8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition</strong>: Thư viện JavaScript của Facebook giúp xây dựng UI.</li></ul><pre id="47651b69-d3a8-4691-a2d3-e94ca90dcda3" class="code"><code>import React from 'react';
-    import ReactDOM from 'react-dom';
+    Hiển thị: .d-none (ẩn), .d-block (block display), .d-flex (flexbox display) và nhiều class khác dành cho responsive design.</code></pre><p id="dd966ca7-2ef9-42fd-91d2-68831d562081" class=""><strong>10.  Phương thức call(), Bind(), apply()</strong></p><ul id="ed5c86b5-9db7-4e85-9c0c-111131ad1675" class="bulleted-list"><li style="list-style-type:disc"><strong>Cú pháp</strong>: <code><strong>function.call(thisArg, arg1, arg2, ...)</strong></code></li></ul><ul id="7a38d0a3-93c5-4bd7-bc16-70d87964620e" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Phương thức <code><strong>call()</strong></code> gọi một hàm với một giá trị <code><strong>this</strong></code> được chỉ định và các đối số được cung cấp dưới dạng riêng lẻ.</li></ul><ul id="17e6bb4a-6b7d-4d65-844e-43603bb1dbf7" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>:</li></ul><pre id="c9f42397-ca3e-48c6-8038-7794db0008f8" class="code"><code>function chao(firstName, lastName) {
+        console.log(`Xin chào, ${firstName} ${lastName}. Tôi tên là ${this.name}`);
+    }
+    
+    const nguoi = { name: &#x27;Alice&#x27; };
+    
+    chao.call(nguoi, &#x27;Bob&#x27;, &#x27;Smith&#x27;);  // Kết quả: Xin chào, Bob Smith. Tôi tên là Alice</code></pre><ul id="d191dd04-1175-4fd6-b9b1-87424d30be99" class="bulleted-list"><li style="list-style-type:disc"><strong>Cú pháp</strong>: <code><strong>function.apply(thisArg, [argsArray])</strong></code></li></ul><ul id="1ed04081-c1a6-4cf0-be74-499f44f34cdb" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Phương thức <code><strong>apply()</strong></code> giống như <code><strong>call()</strong></code>, nhưng nó nhận một mảng (hoặc đối tượng giống mảng) của đối số, thay vì từng đối số riêng lẻ.</li></ul><ul id="5b6e8f07-2289-441e-aa55-f4d50c09bfe4" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>:</li></ul><pre id="5903019a-5f62-4465-aeaf-cbc18adf9f17" class="code"><code>function chao(firstName, lastName) {
+        console.log(`Xin chào, ${firstName} ${lastName}. Tôi tên là ${this.name}`);
+    }
+    
+    const nguoi = { name: &#x27;Alice&#x27; };
+    
+    chao.apply(nguoi, [&#x27;Bob&#x27;, &#x27;Smith&#x27;]);  // Kết quả: Xin chào, Bob Smith. Tôi tên là Alice</code></pre><ul id="1502df77-7062-4ba5-b691-713e0ea0a222" class="bulleted-list"><li style="list-style-type:disc"><strong>Cú pháp</strong>: <code><strong>function.bind(thisArg, arg1, arg2, ...)</strong></code></li></ul><ul id="faa641ea-3447-4778-9eed-25c871012ab2" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Phương thức <code><strong>bind()</strong></code> tạo ra một hàm mới, khi được gọi, từ khóa <code><strong>this</strong></code> của nó được đặt thành giá trị đã cung cấp. Hàm mới cũng có một chuỗi đối số được cung cấp cho phương thức <code><strong>bind()</strong></code>, theo sau là bất kỳ đối số nào được truyền vào hàm mới.</li></ul><ul id="3c35bcd3-f144-42e0-b72a-6762d7674543" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>:</li></ul><pre id="a7c599e8-c0e0-4286-8ea8-21305905b35b" class="code"><code>function chao(firstName, lastName) {
+        console.log(`Xin chào, ${firstName} ${lastName}. Tên tôi là ${this.name}`);
+    }
+    
+    const nguoi = { name: &#x27;Alice&#x27; };
+    const chaoDaRangBuoc = chao.bind(nguoi);
+    
+    chaoDaRangBuoc(&#x27;Bob&#x27;, &#x27;Smith&#x27;);  // Xuất ra: Xin chào, Bob Smith. Tên tôi là Alice</code></pre><h3 id="965d4c17-2fdb-417c-8d43-16c8ba2e8b5f" class=""><strong>Điểm khác biệt chính:</strong></h3><ol type="1" id="6a25d9ab-5224-4a18-b6c9-ff1fac85f330" class="numbered-list" start="1"><li><strong>Thực thi ngay lập tức</strong>: Cả <code><strong>call()</strong></code> và <code><strong>apply()</strong></code> đều thực thi hàm ngay lập tức. Tuy nhiên, <code><strong>bind()</strong></code> trả về một hàm mới với ngữ cảnh và đối số đã xác định, sẵn sàng để được gọi sau này.</li></ol><ol type="1" id="2ed5bcad-2cee-442c-942f-5e8601fc2679" class="numbered-list" start="2"><li><strong>Đối số</strong>:<ul id="c002b01b-581d-40ca-b73c-f064ddd7d0c0" class="bulleted-list"><li style="list-style-type:disc"><code><strong>call()</strong></code>: Nhận đối số <code><strong>this</strong></code> trước, sau đó là danh sách các đối số.</li></ul><ul id="05c1f1dd-bd40-4b7c-8ee7-9e3554e51a71" class="bulleted-list"><li style="list-style-type:disc"><code><strong>apply()</strong></code>: Nhận đối số <code><strong>this</strong></code> trước, sau đó là một mảng đối số.</li></ul><ul id="3dc578cf-e5ed-48cd-a9c4-fdd75a8b875c" class="bulleted-list"><li style="list-style-type:disc"><code><strong>bind()</strong></code>: Giống như <code><strong>call()</strong></code>, nó nhận đối số <code><strong>this</strong></code> trước, sau đó là danh sách các đối số. Nhưng nhớ rằng, nó không thực thi hàm ngay lập tức.</li></ul></li></ol><p id="3935b9a3-7aa8-4035-b500-c8e7cc5fb5b5" class=""><strong>11. JSON</strong></p><p id="cc721c7c-f380-4682-bc17-1fad4b1ce82e" class=""><strong>JSON (JavaScript Object Notation)</strong>:</p><ul id="36176ec2-3558-4aa8-ac3a-1fde20d7fda8" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Là một định dạng dữ liệu dễ đọc và viết cho con người, cũng như dễ cho máy tính phân tích và tạo ra. Thường được sử dụng để truyền dữ liệu giữa máy khách và máy chủ.</li></ul><p id="15ffaf09-f928-46f4-83ff-5085a2ee12c7" class=""><strong>JSON&#x27;s Methods</strong>:</p><p id="81fe67dd-cf4d-4342-9584-95a871c70337" class=""><strong>JSON.stringify()</strong>:</p><ul id="357a6b21-1b3a-4afc-9e10-110c0be206da" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Chuyển đổi một giá trị JavaScript thành một chuỗi JSON.</li></ul><ul id="ca4217c5-5a9d-461c-8fab-6ddc1f5f3308" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>:</li></ul><pre id="ce6f0eae-58af-4668-921d-617981f6f5d1" class="code"><code>const obj = {name: &quot;Alice&quot;, age: 25};
+    const jsonString = JSON.stringify(obj);
+    console.log(jsonString); // &#x27;{&quot;name&quot;:&quot;Alice&quot;,&quot;age&quot;:25}&#x27;</code></pre><p id="67676e00-b2ae-4472-818c-72a687259a23" class=""><strong>JSON.parse()</strong>:</p><ul id="b508cb96-0ea8-449b-9b42-e5b21979f83e" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Chuyển đổi một chuỗi JSON thành một giá trị JavaScript.</li></ul><ul id="f5ab856d-77e8-4023-8fba-9eb718d0260f" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>:</li></ul><pre id="6ee73025-8440-4d92-aab4-e05b6be14df2" class="code"><code>const jsonString = &#x27;{&quot;name&quot;:&quot;Alice&quot;,&quot;age&quot;:25}&#x27;;
+    const obj = JSON.parse(jsonString);
+    console.log(obj.name); // &#x27;Alice&#x27;</code></pre><hr id="9305fc36-a5fa-4428-a984-09dfa3a5d05a"/><h3 id="115f914e-4b2a-47c5-acec-7a75f41be346" class="">Các khái niệm <strong>React </strong></h3><p id="61826f83-39c9-44bf-b6d1-49424b7c7e81" class=""><strong>1. React</strong></p><ul id="cfbd2ad9-b1c2-4d17-af75-ca5e8f938f8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition</strong>: Thư viện JavaScript của Facebook giúp xây dựng UI.</li></ul><pre id="47651b69-d3a8-4691-a2d3-e94ca90dcda3" class="code"><code>import React from &#x27;react&#x27;;
+    import ReactDOM from &#x27;react-dom&#x27;;
     
     function App() {
         return &lt;h1&gt;Hello, React!&lt;/h1&gt;;
     }
     
-    ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));</code></pre><p id="15b5a524-3d76-4067-a358-5396841aed46" class=""><strong>2. JSX</strong></p><ul id="6751f01a-cba6-46e8-8358-02d2faf58a70" class="bulleted-list"><li style="list-style-type:disc"><strong>Định nghĩa</strong>: Cú pháp mở rộng cho JavaScript cho phép viết mã giống HTML.</li></ul><pre id="a0e3ffb1-d5cc-463f-bb97-2f37f3b5a450" class="code"><code>const element = &lt;h1&gt;Hello, JSX!&lt;/h1&gt;;</code></pre><p id="bcad6fff-9ae3-407b-a618-b138d40c778a" class=""><strong>3. Lifecycle of Component</strong></p><ul id="f085bfb7-289b-4c6d-bfad-7259bd12a679" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Giai đoạn mà component trải qua từ khi tạo đến khi hủy.</li></ul><pre id="002689fb-ecaa-418d-ab9b-70af9dd520c7" class="code"><code>import React, { Component } from 'react';
+    ReactDOM.render(&lt;App /&gt;, document.getElementById(&#x27;root&#x27;));</code></pre><p id="15b5a524-3d76-4067-a358-5396841aed46" class=""><strong>2. JSX</strong></p><ul id="6751f01a-cba6-46e8-8358-02d2faf58a70" class="bulleted-list"><li style="list-style-type:disc"><strong>Định nghĩa</strong>: Cú pháp mở rộng cho JavaScript cho phép viết mã giống HTML.</li></ul><pre id="a0e3ffb1-d5cc-463f-bb97-2f37f3b5a450" class="code"><code>const element = &lt;h1&gt;Hello, JSX!&lt;/h1&gt;;</code></pre><p id="bcad6fff-9ae3-407b-a618-b138d40c778a" class=""><strong>3. Lifecycle of Component</strong></p><ul id="f085bfb7-289b-4c6d-bfad-7259bd12a679" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Giai đoạn mà component trải qua từ khi tạo đến khi hủy.</li></ul><pre id="002689fb-ecaa-418d-ab9b-70af9dd520c7" class="code"><code>import React, { Component } from &#x27;react&#x27;;
     
     class ExampleComponent extends Component {
         constructor(props) {
             super(props);
-            console.log('Constructor - Khởi tạo');
+            console.log(&#x27;Constructor - Khởi tạo&#x27;);
         }
     
         componentDidMount() {
-            console.log('componentDidMount - Gán vào Component');
+            console.log(&#x27;componentDidMount - Gán vào Component&#x27;);
         }
     
         componentDidUpdate() {
-            console.log('componentDidUpdate - Cập nhật Component');
+            console.log(&#x27;componentDidUpdate - Cập nhật Component&#x27;);
         }
     
         componentWillUnmount() {
-            console.log('componentWillUnmount - Hủy khỏi Component');
+            console.log(&#x27;componentWillUnmount - Hủy khỏi Component&#x27;);
         }
     
         render() {
             return &lt;h1&gt;Hello, Lifecycle!&lt;/h1&gt;;
         }
-    }</code></pre><ul id="4450883b-5256-4663-8eb7-41b29b804751" class="bulleted-list"><li style="list-style-type:disc"><strong>Từ React 16.3 trở đi</strong>, một số phương thức vòng đời mới đã được giới thiệu và một số phương thức cũ không an toàn đã được đánh dấu là sắp bị khai tử:</li></ul><pre id="cbf7c6b5-70b2-40a5-82e3-efdad7ea4061" class="code"><code>import React, { useState, useEffect } from 'react';
+    }</code></pre><ul id="4450883b-5256-4663-8eb7-41b29b804751" class="bulleted-list"><li style="list-style-type:disc"><strong>Từ React 16.3 trở đi</strong>, một số phương thức vòng đời mới đã được giới thiệu và một số phương thức cũ không an toàn đã được đánh dấu là sắp bị khai tử:</li></ul><pre id="cbf7c6b5-70b2-40a5-82e3-efdad7ea4061" class="code"><code>import React, { useState, useEffect } from &#x27;react&#x27;;
     
     function DemoHookComponent() { 
       const [count, setCount] = useState(0); //Initialization (Khởi tạo): 1
     
       useEffect(() =&gt; {
-        console.log('Component đã được gắn kết hoặc cập nhật.'); // Mounting (Gắn kết): 2
+        console.log(&#x27;Component đã được gắn kết hoặc cập nhật.&#x27;); // Mounting (Gắn kết): 2
         return () =&gt; {
-          console.log('Cleanup: Component sắp được gỡ bỏ hoặc trước khi cập nhật lại.'); //5
+          console.log(&#x27;Cleanup: Component sắp được gỡ bỏ hoặc trước khi cập nhật lại.&#x27;); //5
         }
       });
     
@@ -877,13 +901,13 @@
         }
     }</code></pre><p id="4cd86b5d-ff06-44ec-9327-d41780cb7430" class=""><strong>7. Handle Event</strong></p><ul id="f960d35c-aefb-4bc5-975e-97fb45393fca" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Xử lý sự kiện như click, input, etc.</li></ul><pre id="2a111033-5984-41dd-b862-8e8fe1275de6" class="code"><code>class EventComponent extends React.Component {
         handleClick() {
-            alert('Button was clicked!');
+            alert(&#x27;Button was clicked!&#x27;);
         }
     
         render() {
             return &lt;button onClick={this.handleClick}&gt;Click Me!&lt;/button&gt;;
         }
-    }</code></pre><p id="fe2541bd-d4bb-4f12-ba55-b89b2fd8df0a" class=""><strong>8. React Hook + Lifecycle</strong></p><ul id="0f511b70-1a66-4e8d-9fbb-c552dfe6eca1" class="bulleted-list"><li style="list-style-type:disc"><strong>Hooks</strong>: Functions kết nối tính năng React mà không cần class.</li></ul><pre id="b42cdce1-8655-4765-ac7b-8101fb5d77a5" class="code"><code>import { useState, useEffect } from 'react';
+    }</code></pre><p id="fe2541bd-d4bb-4f12-ba55-b89b2fd8df0a" class=""><strong>8. React Hook + Lifecycle</strong></p><ul id="0f511b70-1a66-4e8d-9fbb-c552dfe6eca1" class="bulleted-list"><li style="list-style-type:disc"><strong>Hooks</strong>: Functions kết nối tính năng React mà không cần class.</li></ul><pre id="b42cdce1-8655-4765-ac7b-8101fb5d77a5" class="code"><code>import { useState, useEffect } from &#x27;react&#x27;;
     
     function HookComponent() {
         const [count, setCount] = useState(0);
@@ -892,7 +916,7 @@
             document.title = `You clicked ${count} times`;
     
             return () =&gt; {
-                console.log('Cleanup on component unmount');
+                console.log(&#x27;Cleanup on component unmount&#x27;);
             };
         }, [count]);
     
@@ -902,7 +926,7 @@
                 &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt;
             &lt;/div&gt;
         );
-    }</code></pre><p id="6e704061-8312-4a21-af46-b6f8d939eb5c" class=""><strong>9.  useCallback và useMemo </strong></p><ul id="bdca5b5e-7d11-4db7-8947-83c24fa686e6" class="bulleted-list"><li style="list-style-type:disc">    <code><strong>useCallback</strong></code> là một hook trong React được sử dụng để tránh việc tạo ra một function mới mỗi khi component được re-render.</li></ul><ul id="a78ba344-7183-4876-9a28-339f243b35c8" class="bulleted-list"><li style="list-style-type:disc"> Nó nhận vào hai tham số: một function và một mảng dependencies. Khi các dependencies không thay đổi qua các lần re-render, <code><strong>useCallback</strong></code> sẽ trả lại phiên bản cũ của function, thay vì tạo ra một bản mới.</li></ul><ul id="908d3771-211c-4b03-9988-11e7368fad31" class="bulleted-list"><li style="list-style-type:disc">Điều này hữu ích khi bạn muốn tránh việc re-render không cần thiết của các component con khi truyền function như props.</li></ul><p id="a1abec48-b359-48a5-9a15-ad7ada2a48cd" class="">  </p><div class="indented"><pre id="d23caaf6-cdd0-4b3e-a282-ac796f797dda" class="code"><code>import React, { useCallback, useEffect, useState } from "react";
+    }</code></pre><p id="6e704061-8312-4a21-af46-b6f8d939eb5c" class=""><strong>9.  useCallback và useMemo </strong></p><ul id="bdca5b5e-7d11-4db7-8947-83c24fa686e6" class="bulleted-list"><li style="list-style-type:disc">    <code><strong>useCallback</strong></code> là một hook trong React được sử dụng để tránh việc tạo ra một function mới mỗi khi component được re-render.</li></ul><ul id="a78ba344-7183-4876-9a28-339f243b35c8" class="bulleted-list"><li style="list-style-type:disc"> Nó nhận vào hai tham số: một function và một mảng dependencies. Khi các dependencies không thay đổi qua các lần re-render, <code><strong>useCallback</strong></code> sẽ trả lại phiên bản cũ của function, thay vì tạo ra một bản mới.</li></ul><ul id="908d3771-211c-4b03-9988-11e7368fad31" class="bulleted-list"><li style="list-style-type:disc">Điều này hữu ích khi bạn muốn tránh việc re-render không cần thiết của các component con khi truyền function như props.</li></ul><p id="a1abec48-b359-48a5-9a15-ad7ada2a48cd" class="">  <div class="indented"><pre id="d23caaf6-cdd0-4b3e-a282-ac796f797dda" class="code"><code>import React, { useCallback, useEffect, useState } from &quot;react&quot;;
     
     function FnCallback () {
          // Giả sử state ban đầu là một mảng có 5 phần tử
@@ -914,7 +938,7 @@
             // Bạn có thể thêm logic xử lý ở đây
     
             setItems(prevItems =&gt; prevItems.slice(0, -1)); // xóa phần tử cuối cùng
-            return  alert('Số lượng phần tử đã vượt quá giới hạn!');
+            return  alert(&#x27;Số lượng phần tử đã vượt quá giới hạn!&#x27;);
             
         }
       },[items])
@@ -941,35 +965,127 @@
     
     export default FnCallback;
     // Ban đầu, items là một mảng có 5 phần tử.
-    //Khi người dùng nhấp vào nút "Thêm phần tử", một phần tử mới sẽ được thêm vào mảng.
+    //Khi người dùng nhấp vào nút &quot;Thêm phần tử&quot;, một phần tử mới sẽ được thêm vào mảng.
     //useEffect theo dõi sự thay đổi của items.
     //Khi số lượng phần tử trong items vượt quá 7, hàm deletedItem sẽ được gọi.</code></pre><p id="653fc8ee-2c26-4690-83c4-971ac2787ba2" class="">
     </p><ul id="96ceca23-d778-4a43-8996-4cc2f1460248" class="bulleted-list"><li style="list-style-type:disc"><code><strong>useMemo</strong></code> giúp tránh việc tính toán lại giá trị mỗi khi component re-render, trừ khi một trong các dependencies đã thay đổi.</li></ul><ul id="f01cf2cf-2b32-4b62-a410-f2bd85e12d4a" class="bulleted-list"><li style="list-style-type:disc">Điều này hữu ích cho các tính toán phức tạp mà bạn không muốn thực hiện mỗi lần component re-render.</li></ul><ul id="beb34173-83ae-4c89-b0b0-094d56d6e595" class="bulleted-list"><li style="list-style-type:disc"><code><strong>useMemo</strong></code> cũng nhận hai tham số: một function tạo ra giá trị cần được ghi nhớ và một mảng dependencies.</li></ul><pre id="ddbee181-0d63-4aa7-a38a-b454c842bf38" class="code"><code>function Total({ numbers }) {
       const total = useMemo(() =&gt; {
-        console.log("Tính toán tổng...");
+        console.log(&quot;Tính toán tổng...&quot;);
         return numbers.reduce((sum, num) =&gt; sum + num, 0);
       }, [numbers]);
     
       return &lt;div&gt;Tổng: {total}&lt;/div&gt;;
     }
     //mỗi khi numbers thay đổi, useMemo sẽ thực hiện tính toán mới. 
-    //Nhưng nếu numbers không thay đổi giữa các lần render, nó sẽ sử dụng giá trị memoized,tránh việc thực hiện các tính toán không cần thiết.</code></pre><ul id="1f4a3028-9e28-4d54-8a72-5299fb329027" class="toggle"><li><details open=""><summary><strong>Sự khác biệt giữa hai cái</strong>:</summary><p id="d5aefd86-9188-4bbe-9160-17646d67bc8d" class="">
-    </p></details></li></ul><ul id="f405d134-eddc-45a8-b799-67539ebfffef" class="bulleted-list"><li style="list-style-type:disc">Mặc dù cả hai đều dựa trên khái niệm memoization và đều sử dụng một mảng dependencies, <code><strong>useCallback</strong></code> trả lại một function memoized trong khi <code><strong>useMemo</strong></code> trả lại giá trị mà function tạo ra.</li></ul><p id="9952b369-47fc-425d-9dcd-c3689a5a9ee2" class=""><strong>Về hiệu suất</strong>:</p><ul id="e5a1413e-6757-45ba-aa89-9f4f8ba09a02" class="bulleted-list"><li style="list-style-type:disc">Sử dụng <code><strong>useCallback</strong></code> và <code><strong>useMemo</strong></code> không phải lúc nào cũng mang lại lợi ích về hiệu suất. Thực tế, trong nhiều trường hợp, việc sử dụng chúng mà không cần thiết có thể làm giảm hiệu suất bởi vì việc tạo ra các hooks cũng tốn một chút thời gian. Chính vì vậy, bạn nên chỉ sử dụng chúng khi thực sự cần thiết và sau khi đã đo lường hiệu suất.</li></ul></div><p></p><hr id="8c4fb6a7-9ce9-4445-b38d-b604edca7b97"><h3 id="5cfe2be8-806f-4006-af91-cb52309cb40d" class=""><strong>Advanced JavaScript Techniques</strong></h3><p id="b174c076-bd64-4713-9782-5ffaad9d90a5" class=""><strong>1. forEach(Item, index , array)</strong></p><ul id="004abb7e-a85a-4606-b389-f31853385c13" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Thực thi hàm cho mỗi phần tử. Không trả về mảng mới.</li></ul><pre id="6344f88f-6d50-4f4f-8027-c883c8c3ee65" class="code"><code>const numbers = [1, 2, 3];
+    //Nhưng nếu numbers không thay đổi giữa các lần render, nó sẽ sử dụng giá trị memoized, tránh việc thực hiện các tính toán
+     không cần thiết.</code></pre><ul id="1f4a3028-9e28-4d54-8a72-5299fb329027" class="toggle"><li><details open=""><summary><strong>Sự khác biệt giữa hai cái</strong>:</summary><p id="d5aefd86-9188-4bbe-9160-17646d67bc8d" class="">
+    </p></details></li></ul><ul id="f405d134-eddc-45a8-b799-67539ebfffef" class="bulleted-list"><li style="list-style-type:disc">Mặc dù cả hai đều dựa trên khái niệm memoization và đều sử dụng một mảng dependencies, <code><strong>useCallback</strong></code> trả lại một function memoized trong khi <code><strong>useMemo</strong></code> trả lại giá trị mà function tạo ra.</li></ul><p id="9952b369-47fc-425d-9dcd-c3689a5a9ee2" class=""><strong>Về hiệu suất</strong>:</p><ul id="e5a1413e-6757-45ba-aa89-9f4f8ba09a02" class="bulleted-list"><li style="list-style-type:disc">Sử dụng <code><strong>useCallback</strong></code> và <code><strong>useMemo</strong></code> không phải lúc nào cũng mang lại lợi ích về hiệu suất. Thực tế, trong nhiều trường hợp, việc sử dụng chúng mà không cần thiết có thể làm giảm hiệu suất bởi vì việc tạo ra các hooks cũng tốn một chút thời gian. Chính vì vậy, bạn nên chỉ sử dụng chúng khi thực sự cần thiết và sau khi đã đo lường hiệu suất.</li></ul><p id="395f5c06-66fa-4781-a0a2-11d0613cd898" class=""><strong>10.  Phân biệt và cách sử dụng </strong></p><p id="98f81542-6073-4328-80f1-e90550e1a49e" class="">🏁 <strong>Redux Thunk</strong></p><ul id="90df2d27-551c-4ae5-a5e0-a2cabd9ffd45" class="bulleted-list"><li style="list-style-type:disc"><strong>Là gì?</strong> Redux Thunk là một middleware cho Redux cho phép bạn viết action creators trả về một hàm thay vì một action. Đặc biệt hữu ích khi xử lý các hành động bất đồng bộ.</li></ul><ul id="5e540d34-c579-4d2a-9d9d-cff610ce7fdf" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>:</li></ul><pre id="232caee4-cf15-43a1-94f7-7e4fe229dc68" class="code"><code>// Thunk giúp bạn xử lý các hành động bất đồng bộ trong Redux. 
+    
+    // Action thông thường báo hiệu bắt đầu một yêu cầu
+    function batDauYeuCau() {
+        return { type: &#x27;BAT_DAU&#x27; };
+    }
+    
+    // Action thông thường khi yêu cầu thành công
+    function thanhCong(data) {
+        return { type: &#x27;THANH_CONG&#x27;, payload: data };
+    }
+    
+    // Action thông thường khi yêu cầu thất bại
+    function thatBai(error) {
+        return { type: &#x27;THAT_BAI&#x27;, payload: error };
+    }
+    
+    // Action Thunk để thực hiện yêu cầu bất đồng bộ
+    function layDuLieu() {
+        return dispatch =&gt; {
+            dispatch(batDauYeuCau());  // Bắt đầu yêu cầu
+            fetch(&#x27;/api/duLieu&#x27;)      // Giả sử bạn đang gọi API
+                .then(resp =&gt; resp.json())
+                .then(data =&gt; {
+                    dispatch(thanhCong(data));  // Yêu cầu thành công
+                })
+                .catch(error =&gt; {
+                    dispatch(thatBai(error));   // Yêu cầu thất bại
+                });
+        };
+    }</code></pre><p id="20a4a741-a986-4809-946a-9f4e853fb791" class="">🏁 <strong>Reselect</strong></p><ul id="2164aa89-0e39-4af4-952c-a8ea5486ca96" class="bulleted-list"><li style="list-style-type:disc"><strong>Là gì?</strong> Reselect là một thư viện giúp tạo ra các selector functions được lưu trữ. Các selectors có thể tính toán dữ liệu dẫn xuất từ Redux store, cho phép Redux lưu trữ trạng thái tối thiểu.</li></ul><ul id="02f4fecd-617b-4e4f-99ac-8042c62a29de" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>:</li></ul><pre id="485962ca-31e8-4547-9c52-79f5b4d2bdec" class="code"><code>import React from &#x27;react&#x27;;
+    import { createSelector } from &#x27;reselect&#x27;;
+    
+    function GetUserFilte() {
+        // Giả sử chúng ta có một state giả lập như sau:
+        const state = {
+            users: [
+                { id: 1, name: &#x27;An&#x27; },
+                { id: 2, name: &#x27;Binh&#x27; },
+                { id: 3, name: &#x27;Chi&#x27; },
+                { id: 4, name: &#x27;Dung&#x27; },
+            ],
+            filter: &#x27;Dung&#x27;
+        };
+    
+        // 1. Lấy dữ liệu người dùng từ state
+        const GetUser = state =&gt; state.users;
+    
+        // 2. Lấy giá trị lọc từ state
+        const getFilter = state =&gt; state.filter;
+    
+        // 3. Tạo một selector để lấy người dùng đã được lọc
+        const getFilteredUsers = createSelector(
+            [GetUser, getFilter],
+            (user, filter) =&gt; user.filter(user =&gt; user.name.includes(filter))
+        );
+    
+        // Sử dụng selector với state giả lập
+        const filteredUsers = getFilteredUsers(state);
+    
+        return (
+            &lt;div&gt;
+                &lt;h2&gt;Danh sách người dùng đã lọc:&lt;/h2&gt;
+                &lt;ul&gt;
+                    {filteredUsers.map(user =&gt; (
+                        &lt;li key={user.id}&gt;{user.name}&lt;/li&gt;
+                    ))}
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        );
+    }
+    
+    export default GetUserFilte;</code></pre><p id="e791b6b4-a75b-469b-a911-17262c5ea915" class="">🏁 <strong>Redux Saga</strong></p><ul id="069dfdf3-9152-483e-a21f-308187979ddc" class="bulleted-list"><li style="list-style-type:disc"><strong>Là gì?</strong> Redux Saga là một thư viện giúp quản lý side effects (ví dụ như việc lấy dữ liệu bất đồng bộ) dễ dàng hơn, hiệu quả hơn, dễ kiểm tra hơn và giải quyết lỗi tốt hơn.</li></ul><ul id="79662d87-04f1-4d08-821b-43398fd1e8eb" class="bulleted-list"><li style="list-style-type:disc"><strong>Fork</strong>: dùng cơ chế non - blocking call trên function</li></ul><ul id="f8e70007-bc9c-4d13-ac89-b545b73d7186" class="bulleted-list"><li style="list-style-type:disc"><strong>Call</strong>: dùng để gọi function. Nếu Redux saga return về một promise, tạm dừng saga cho đến khi promise được giải quyết</li></ul><ul id="16b8d298-ff53-4fa8-9183-68d11799a57e" class="bulleted-list"><li style="list-style-type:disc"><strong>Take</strong>: ứng dụng sẽ tạm dừng cho đến khi nhận được action</li></ul><ul id="ea2aa61d-81e7-4257-a719-42b01265ec05" class="bulleted-list"><li style="list-style-type:disc"><strong>Put</strong>: được sử dụng để dispatch một action</li></ul><ul id="a8e44b23-b369-4c8f-a138-4436588f2e61" class="bulleted-list"><li style="list-style-type:disc"><strong>takeEvery</strong>: giúp người dùng theo dõi một action nào đó thay đổi thì gọi một saga nào đó</li></ul><ul id="65448a01-3010-4c59-814e-905e9a7bdcdf" class="bulleted-list"><li style="list-style-type:disc"><strong>akeLa test</strong>: giúp người dùng thực hiện một loạt các actions và trả lại kết quả của của actions cuối cùng</li></ul><ul id="0f1909b3-92ec-4c67-8915-fb767c8e1b5c" class="bulleted-list"><li style="list-style-type:disc"><strong>yield</strong>: giúp chạy tuần tự khi nào trả ra kết quả mới tiếp tục thực hiện action khác</li></ul><ul id="71321f9a-de64-4626-a4cb-fc2260ac0118" class="bulleted-list"><li style="list-style-type:disc"><strong>Select</strong>: giúp chạy một selector function để lấy data từ state có trước</li></ul><ul id="01d9983d-a275-43a7-a9bf-7e52b9f26ce2" class="bulleted-list"><li style="list-style-type:disc"><strong>Ví dụ</strong>:</li></ul><pre id="f3540dcd-bb07-4864-be26-c9550991711a" class="code"><code>import { call, put, takeEvery } from &#x27;redux-saga/effects&#x27;;
+    
+    // 1. Saga xử lý việc lấy dữ liệu người dùng
+    function* layDuLieuNguoiDungSaga(action) {
+        try {
+            // Sử dụng effect `call` để gọi API
+            const nguoiDung = yield call(api.layNguoiDung, action.payload.userId);
+            // Khi lấy thành công, gửi hành động thành công bằng effect `put`
+            yield put({type: &#x27;LAY_THANH_CONG&#x27;, nguoiDung});
+        } catch (e) {
+            // Khi có lỗi, gửi hành động thất bại
+            yield put({type: &#x27;LAY_THAT_BAI&#x27;, thongDiep: e.message});
+        }
+    }
+    
+    // 2. Saga chính lắng nghe các hành động và chạy Saga tương ứng
+    function* rootSaga() {
+        // Sử dụng effect `takeEvery` để lắng nghe mỗi hành động `LAY_YEU_CAU` và chạy `layDuLieuNguoiDungSaga`
+        yield takeEvery(&#x27;LAY_YEU_CAU&#x27;, layDuLieuNguoiDungSaga);
+    }</code></pre></div></p><hr id="8c4fb6a7-9ce9-4445-b38d-b604edca7b97"/><h3 id="5cfe2be8-806f-4006-af91-cb52309cb40d" class=""><strong>Advanced JavaScript Techniques</strong></h3><p id="b174c076-bd64-4713-9782-5ffaad9d90a5" class=""><strong>1. forEach(Item, index , array)</strong></p><ul id="004abb7e-a85a-4606-b389-f31853385c13" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Thực thi hàm cho mỗi phần tử. Không trả về mảng mới.</li></ul><pre id="6344f88f-6d50-4f4f-8027-c883c8c3ee65" class="code"><code>const numbers = [1, 2, 3];
     numbers.forEach(num =&gt; console.log(num));</code></pre><p id="0a19e9ca-cb0b-4a77-ab34-38930ada6a4d" class=""><strong>2. filter(value, index, array)</strong></p><ul id="e3307100-cfba-4148-ad41-fd6eb23a8980" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả:  </strong>Tìm kiếm phần tử trong hàm </li></ul><pre id="941e3725-67df-4900-b47b-a2d1070ca5f7" class="code"><code>const numbers = [1, 2, 3, 4];
     const evenNumbers = numbers.filter(num =&gt; num % 2 === 0);
     console.log(evenNumbers);</code></pre><p id="68bc8a79-96d1-4461-9c06-f68ee46caef4" class=""><strong>3. map(Item, index , array)</strong></p><ul id="2d5a92dd-ff24-4942-9490-b352b23ee1d6" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Tạo mảng mới dựa trên biến đổi nào đó.</li></ul><pre id="678df4af-aac5-458c-a9ee-78d219da21c8" class="code"><code>const numbers = [1, 2, 3];
     const doubledNumbers = numbers.map(num =&gt; num * 2);
     console.log(doubledNumbers);</code></pre><p id="65f6d86a-796a-4203-8a71-d99d1dbc1a4c" class=""><strong>4. reduce(previousValue , currentValue , currentIndex , Array )</strong></p><ul id="98745858-5db9-4895-95d4-8d0d26175232" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Biến đổi mảng dựa trên giá trị tích lũy.</li></ul><pre id="f22fc916-5552-4aa2-a45c-a0ec1b30c9cd" class="code"><code>const numbers = [1, 2, 3];
     const sum = numbers.reduce((accumulator, num , index , array) =&gt; accumulator + num, 0);
-    console.log(sum);</code></pre><p id="fa778d7e-6aa5-4a85-87c7-e22df7ac241b" class=""><strong>5. Spread &amp; Rest</strong></p><ul id="85cf54a3-d86d-4474-a203-64df2144cc8a" class="bulleted-list"><li style="list-style-type:disc"><strong>Spread</strong>: "Trải" giá trị ra.</li></ul><pre id="8190e56d-db4d-4b93-908e-63a91948ffb8" class="code"><code>const oldArray = [1, 2, 3];
-    const newArray = [...oldArray, 4, 5];</code></pre><ul id="ee0deef2-274d-44e3-aa41-397ccee85299" class="bulleted-list"><li style="list-style-type:disc"><strong>Rest</strong>: "Thu gom" giá trị lại.</li></ul><pre id="485a740b-645b-4db9-b2ae-2f3252d52673" class="code"><code>function logArgs(...args) {
+    console.log(sum);</code></pre><p id="fa778d7e-6aa5-4a85-87c7-e22df7ac241b" class=""><strong>5. Spread &amp; Rest</strong></p><ul id="85cf54a3-d86d-4474-a203-64df2144cc8a" class="bulleted-list"><li style="list-style-type:disc"><strong>Spread</strong>: &quot;Trải&quot; giá trị ra.</li></ul><pre id="8190e56d-db4d-4b93-908e-63a91948ffb8" class="code"><code>const oldArray = [1, 2, 3];
+    const newArray = [...oldArray, 4, 5];</code></pre><ul id="ee0deef2-274d-44e3-aa41-397ccee85299" class="bulleted-list"><li style="list-style-type:disc"><strong>Rest</strong>: &quot;Thu gom&quot; giá trị lại.</li></ul><pre id="485a740b-645b-4db9-b2ae-2f3252d52673" class="code"><code>function logArgs(...args) {
         console.log(args);
     }
     
     logArgs(1, 2, 3, 4, 5);</code></pre><p id="49424266-b7ba-41da-9c23-ccaef6c24b55" class=""><strong>6. Optional chaining</strong></p><ul id="6efd14cf-ba61-4b3a-9955-28486a0c4f18" class="bulleted-list"><li style="list-style-type:disc"><strong>Mô tả</strong>: Truy cập thuộc tính mà không cần kiểm tra tồn tại.</li></ul><pre id="9be0fe2f-0c7d-4d64-a32b-078a7b54f0fa" class="code"><code>const user = {
-        name: "John",
+        name: &quot;John&quot;,
         address: {
-            street: "123 Main St."
+            street: &quot;123 Main St.&quot;
         }
     };
     
